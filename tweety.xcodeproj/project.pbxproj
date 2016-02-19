@@ -1,0 +1,587 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		281FBA311C7780DE0084523F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281FBA301C7780DE0084523F /* AppDelegate.swift */; };
+		281FBA331C7780DE0084523F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281FBA321C7780DE0084523F /* ViewController.swift */; };
+		281FBA361C7780DE0084523F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 281FBA341C7780DE0084523F /* Main.storyboard */; };
+		281FBA381C7780DE0084523F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 281FBA371C7780DE0084523F /* Assets.xcassets */; };
+		281FBA3B1C7780DE0084523F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 281FBA391C7780DE0084523F /* LaunchScreen.storyboard */; };
+		281FBA461C7780DE0084523F /* tweetyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281FBA451C7780DE0084523F /* tweetyTests.swift */; };
+		281FBA511C7780DE0084523F /* tweetyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281FBA501C7780DE0084523F /* tweetyUITests.swift */; };
+		7F91220729735657DFA9A327 /* Pods_tweetyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D06635DD4FA02BF8B124491 /* Pods_tweetyTests.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		281FBA421C7780DE0084523F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 281FBA251C7780DE0084523F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 281FBA2C1C7780DE0084523F;
+			remoteInfo = tweety;
+		};
+		281FBA4D1C7780DE0084523F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 281FBA251C7780DE0084523F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 281FBA2C1C7780DE0084523F;
+			remoteInfo = tweety;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		281FBA2D1C7780DE0084523F /* tweety.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tweety.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		281FBA301C7780DE0084523F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		281FBA321C7780DE0084523F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		281FBA351C7780DE0084523F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		281FBA371C7780DE0084523F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		281FBA3A1C7780DE0084523F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		281FBA3C1C7780DE0084523F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		281FBA411C7780DE0084523F /* tweetyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = tweetyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		281FBA451C7780DE0084523F /* tweetyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tweetyTests.swift; sourceTree = "<group>"; };
+		281FBA471C7780DE0084523F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		281FBA4C1C7780DE0084523F /* tweetyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = tweetyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		281FBA501C7780DE0084523F /* tweetyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tweetyUITests.swift; sourceTree = "<group>"; };
+		281FBA521C7780DE0084523F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		71EDAD3441F0D969BB66CE27 /* Pods-tweetyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tweetyTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-tweetyTests/Pods-tweetyTests.release.xcconfig"; sourceTree = "<group>"; };
+		8D06635DD4FA02BF8B124491 /* Pods_tweetyTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_tweetyTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED6AC10F3A2364436A294077 /* Pods-tweetyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tweetyTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-tweetyTests/Pods-tweetyTests.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		281FBA2A1C7780DE0084523F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		281FBA3E1C7780DE0084523F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7F91220729735657DFA9A327 /* Pods_tweetyTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		281FBA491C7780DE0084523F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		281FBA241C7780DE0084523F = {
+			isa = PBXGroup;
+			children = (
+				281FBA2F1C7780DE0084523F /* tweety */,
+				281FBA441C7780DE0084523F /* tweetyTests */,
+				281FBA4F1C7780DE0084523F /* tweetyUITests */,
+				281FBA2E1C7780DE0084523F /* Products */,
+				93178D748B41DE4E45F3CBEC /* Pods */,
+				5D427FDA50F2040B3FD24AF5 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		281FBA2E1C7780DE0084523F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				281FBA2D1C7780DE0084523F /* tweety.app */,
+				281FBA411C7780DE0084523F /* tweetyTests.xctest */,
+				281FBA4C1C7780DE0084523F /* tweetyUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		281FBA2F1C7780DE0084523F /* tweety */ = {
+			isa = PBXGroup;
+			children = (
+				281FBA301C7780DE0084523F /* AppDelegate.swift */,
+				281FBA321C7780DE0084523F /* ViewController.swift */,
+				281FBA341C7780DE0084523F /* Main.storyboard */,
+				281FBA371C7780DE0084523F /* Assets.xcassets */,
+				281FBA391C7780DE0084523F /* LaunchScreen.storyboard */,
+				281FBA3C1C7780DE0084523F /* Info.plist */,
+			);
+			path = tweety;
+			sourceTree = "<group>";
+		};
+		281FBA441C7780DE0084523F /* tweetyTests */ = {
+			isa = PBXGroup;
+			children = (
+				281FBA451C7780DE0084523F /* tweetyTests.swift */,
+				281FBA471C7780DE0084523F /* Info.plist */,
+			);
+			path = tweetyTests;
+			sourceTree = "<group>";
+		};
+		281FBA4F1C7780DE0084523F /* tweetyUITests */ = {
+			isa = PBXGroup;
+			children = (
+				281FBA501C7780DE0084523F /* tweetyUITests.swift */,
+				281FBA521C7780DE0084523F /* Info.plist */,
+			);
+			path = tweetyUITests;
+			sourceTree = "<group>";
+		};
+		5D427FDA50F2040B3FD24AF5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8D06635DD4FA02BF8B124491 /* Pods_tweetyTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		93178D748B41DE4E45F3CBEC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				ED6AC10F3A2364436A294077 /* Pods-tweetyTests.debug.xcconfig */,
+				71EDAD3441F0D969BB66CE27 /* Pods-tweetyTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		281FBA2C1C7780DE0084523F /* tweety */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 281FBA551C7780DE0084523F /* Build configuration list for PBXNativeTarget "tweety" */;
+			buildPhases = (
+				281FBA291C7780DE0084523F /* Sources */,
+				281FBA2A1C7780DE0084523F /* Frameworks */,
+				281FBA2B1C7780DE0084523F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = tweety;
+			productName = tweety;
+			productReference = 281FBA2D1C7780DE0084523F /* tweety.app */;
+			productType = "com.apple.product-type.application";
+		};
+		281FBA401C7780DE0084523F /* tweetyTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 281FBA581C7780DE0084523F /* Build configuration list for PBXNativeTarget "tweetyTests" */;
+			buildPhases = (
+				FFB28EB1B04CBB344CB0FD93 /* Check Pods Manifest.lock */,
+				281FBA3D1C7780DE0084523F /* Sources */,
+				281FBA3E1C7780DE0084523F /* Frameworks */,
+				281FBA3F1C7780DE0084523F /* Resources */,
+				03BC2A38B76EBBC59CA8A469 /* Embed Pods Frameworks */,
+				9614F6B51E7C7734CA572C59 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				281FBA431C7780DE0084523F /* PBXTargetDependency */,
+			);
+			name = tweetyTests;
+			productName = tweetyTests;
+			productReference = 281FBA411C7780DE0084523F /* tweetyTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		281FBA4B1C7780DE0084523F /* tweetyUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 281FBA5B1C7780DE0084523F /* Build configuration list for PBXNativeTarget "tweetyUITests" */;
+			buildPhases = (
+				281FBA481C7780DE0084523F /* Sources */,
+				281FBA491C7780DE0084523F /* Frameworks */,
+				281FBA4A1C7780DE0084523F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				281FBA4E1C7780DE0084523F /* PBXTargetDependency */,
+			);
+			name = tweetyUITests;
+			productName = tweetyUITests;
+			productReference = 281FBA4C1C7780DE0084523F /* tweetyUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		281FBA251C7780DE0084523F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = Gale;
+				TargetAttributes = {
+					281FBA2C1C7780DE0084523F = {
+						CreatedOnToolsVersion = 7.2;
+					};
+					281FBA401C7780DE0084523F = {
+						CreatedOnToolsVersion = 7.2;
+						TestTargetID = 281FBA2C1C7780DE0084523F;
+					};
+					281FBA4B1C7780DE0084523F = {
+						CreatedOnToolsVersion = 7.2;
+						TestTargetID = 281FBA2C1C7780DE0084523F;
+					};
+				};
+			};
+			buildConfigurationList = 281FBA281C7780DE0084523F /* Build configuration list for PBXProject "tweety" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 281FBA241C7780DE0084523F;
+			productRefGroup = 281FBA2E1C7780DE0084523F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				281FBA2C1C7780DE0084523F /* tweety */,
+				281FBA401C7780DE0084523F /* tweetyTests */,
+				281FBA4B1C7780DE0084523F /* tweetyUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		281FBA2B1C7780DE0084523F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				281FBA3B1C7780DE0084523F /* LaunchScreen.storyboard in Resources */,
+				281FBA381C7780DE0084523F /* Assets.xcassets in Resources */,
+				281FBA361C7780DE0084523F /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		281FBA3F1C7780DE0084523F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		281FBA4A1C7780DE0084523F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		03BC2A38B76EBBC59CA8A469 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-tweetyTests/Pods-tweetyTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9614F6B51E7C7734CA572C59 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-tweetyTests/Pods-tweetyTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FFB28EB1B04CBB344CB0FD93 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		281FBA291C7780DE0084523F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				281FBA331C7780DE0084523F /* ViewController.swift in Sources */,
+				281FBA311C7780DE0084523F /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		281FBA3D1C7780DE0084523F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				281FBA461C7780DE0084523F /* tweetyTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		281FBA481C7780DE0084523F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				281FBA511C7780DE0084523F /* tweetyUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		281FBA431C7780DE0084523F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 281FBA2C1C7780DE0084523F /* tweety */;
+			targetProxy = 281FBA421C7780DE0084523F /* PBXContainerItemProxy */;
+		};
+		281FBA4E1C7780DE0084523F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 281FBA2C1C7780DE0084523F /* tweety */;
+			targetProxy = 281FBA4D1C7780DE0084523F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		281FBA341C7780DE0084523F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				281FBA351C7780DE0084523F /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		281FBA391C7780DE0084523F /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				281FBA3A1C7780DE0084523F /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		281FBA531C7780DE0084523F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		281FBA541C7780DE0084523F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		281FBA561C7780DE0084523F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = tweety/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.gale.tweety;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		281FBA571C7780DE0084523F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = tweety/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.gale.tweety;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		281FBA591C7780DE0084523F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = ED6AC10F3A2364436A294077 /* Pods-tweetyTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = tweetyTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.gale.tweetyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/tweety.app/tweety";
+			};
+			name = Debug;
+		};
+		281FBA5A1C7780DE0084523F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 71EDAD3441F0D969BB66CE27 /* Pods-tweetyTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = tweetyTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.gale.tweetyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/tweety.app/tweety";
+			};
+			name = Release;
+		};
+		281FBA5C1C7780DE0084523F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = tweetyUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.gale.tweetyUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = tweety;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		281FBA5D1C7780DE0084523F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = tweetyUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.gale.tweetyUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = tweety;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		281FBA281C7780DE0084523F /* Build configuration list for PBXProject "tweety" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				281FBA531C7780DE0084523F /* Debug */,
+				281FBA541C7780DE0084523F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		281FBA551C7780DE0084523F /* Build configuration list for PBXNativeTarget "tweety" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				281FBA561C7780DE0084523F /* Debug */,
+				281FBA571C7780DE0084523F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		281FBA581C7780DE0084523F /* Build configuration list for PBXNativeTarget "tweetyTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				281FBA591C7780DE0084523F /* Debug */,
+				281FBA5A1C7780DE0084523F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		281FBA5B1C7780DE0084523F /* Build configuration list for PBXNativeTarget "tweetyUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				281FBA5C1C7780DE0084523F /* Debug */,
+				281FBA5D1C7780DE0084523F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 281FBA251C7780DE0084523F /* Project object */;
+}
