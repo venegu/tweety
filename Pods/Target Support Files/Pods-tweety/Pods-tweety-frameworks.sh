@@ -84,10 +84,10 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_framework "Pods-tweetyTests/AFNetworking.framework"
-  install_framework "Pods-tweetyTests/BDBOAuth1Manager.framework"
+  install_framework "Pods-tweety/AFNetworking.framework"
+  install_framework "Pods-tweety/BDBOAuth1Manager.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_framework "Pods-tweetyTests/AFNetworking.framework"
-  install_framework "Pods-tweetyTests/BDBOAuth1Manager.framework"
+  install_framework "Pods-tweety/AFNetworking.framework"
+  install_framework "Pods-tweety/BDBOAuth1Manager.framework"
 fi

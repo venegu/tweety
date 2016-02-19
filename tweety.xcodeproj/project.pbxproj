@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		28194ADE1C7782D500F0B6BE /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28194ADD1C7782D500F0B6BE /* LoginViewController.swift */; };
 		281FBA311C7780DE0084523F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281FBA301C7780DE0084523F /* AppDelegate.swift */; };
 		281FBA331C7780DE0084523F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281FBA321C7780DE0084523F /* ViewController.swift */; };
 		281FBA361C7780DE0084523F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 281FBA341C7780DE0084523F /* Main.storyboard */; };
@@ -14,6 +15,7 @@
 		281FBA3B1C7780DE0084523F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 281FBA391C7780DE0084523F /* LaunchScreen.storyboard */; };
 		281FBA461C7780DE0084523F /* tweetyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281FBA451C7780DE0084523F /* tweetyTests.swift */; };
 		281FBA511C7780DE0084523F /* tweetyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281FBA501C7780DE0084523F /* tweetyUITests.swift */; };
+		7232772AE665C4B6B28FCD43 /* Pods_tweety.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42220A6070AA0CC268BEF65A /* Pods_tweety.framework */; };
 		7F91220729735657DFA9A327 /* Pods_tweetyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D06635DD4FA02BF8B124491 /* Pods_tweetyTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		28194ADD1C7782D500F0B6BE /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		281FBA2D1C7780DE0084523F /* tweety.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tweety.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		281FBA301C7780DE0084523F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		281FBA321C7780DE0084523F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -48,6 +51,9 @@
 		281FBA4C1C7780DE0084523F /* tweetyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = tweetyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		281FBA501C7780DE0084523F /* tweetyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tweetyUITests.swift; sourceTree = "<group>"; };
 		281FBA521C7780DE0084523F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		42220A6070AA0CC268BEF65A /* Pods_tweety.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_tweety.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5289A6FC2AC0818FABD3AF0E /* Pods-tweety.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tweety.debug.xcconfig"; path = "Pods/Target Support Files/Pods-tweety/Pods-tweety.debug.xcconfig"; sourceTree = "<group>"; };
+		6F2227809E4716D0C16A7BEA /* Pods-tweety.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tweety.release.xcconfig"; path = "Pods/Target Support Files/Pods-tweety/Pods-tweety.release.xcconfig"; sourceTree = "<group>"; };
 		71EDAD3441F0D969BB66CE27 /* Pods-tweetyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tweetyTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-tweetyTests/Pods-tweetyTests.release.xcconfig"; sourceTree = "<group>"; };
 		8D06635DD4FA02BF8B124491 /* Pods_tweetyTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_tweetyTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED6AC10F3A2364436A294077 /* Pods-tweetyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tweetyTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-tweetyTests/Pods-tweetyTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -58,6 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7232772AE665C4B6B28FCD43 /* Pods_tweety.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,6 +86,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		28194ADA1C77828900F0B6BE /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				28194ADD1C7782D500F0B6BE /* LoginViewController.swift */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
 		281FBA241C7780DE0084523F = {
 			isa = PBXGroup;
 			children = (
@@ -104,6 +119,7 @@
 		281FBA2F1C7780DE0084523F /* tweety */ = {
 			isa = PBXGroup;
 			children = (
+				28194ADA1C77828900F0B6BE /* View Controllers */,
 				281FBA301C7780DE0084523F /* AppDelegate.swift */,
 				281FBA321C7780DE0084523F /* ViewController.swift */,
 				281FBA341C7780DE0084523F /* Main.storyboard */,
@@ -136,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				8D06635DD4FA02BF8B124491 /* Pods_tweetyTests.framework */,
+				42220A6070AA0CC268BEF65A /* Pods_tweety.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -145,6 +162,8 @@
 			children = (
 				ED6AC10F3A2364436A294077 /* Pods-tweetyTests.debug.xcconfig */,
 				71EDAD3441F0D969BB66CE27 /* Pods-tweetyTests.release.xcconfig */,
+				5289A6FC2AC0818FABD3AF0E /* Pods-tweety.debug.xcconfig */,
+				6F2227809E4716D0C16A7BEA /* Pods-tweety.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -156,9 +175,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 281FBA551C7780DE0084523F /* Build configuration list for PBXNativeTarget "tweety" */;
 			buildPhases = (
+				12AEDD7087D23F2BC01BF098 /* Check Pods Manifest.lock */,
 				281FBA291C7780DE0084523F /* Sources */,
 				281FBA2A1C7780DE0084523F /* Frameworks */,
 				281FBA2B1C7780DE0084523F /* Resources */,
+				11F0F4D1DB705FEE932E2067 /* Embed Pods Frameworks */,
+				EAB436A331D688323140E8BA /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -294,6 +316,36 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-tweetyTests/Pods-tweetyTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		11F0F4D1DB705FEE932E2067 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-tweety/Pods-tweety-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		12AEDD7087D23F2BC01BF098 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 		9614F6B51E7C7734CA572C59 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -307,6 +359,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-tweetyTests/Pods-tweetyTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EAB436A331D688323140E8BA /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-tweety/Pods-tweety-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FFB28EB1B04CBB344CB0FD93 /* Check Pods Manifest.lock */ = {
@@ -331,6 +398,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28194ADE1C7782D500F0B6BE /* LoginViewController.swift in Sources */,
 				281FBA331C7780DE0084523F /* ViewController.swift in Sources */,
 				281FBA311C7780DE0084523F /* AppDelegate.swift in Sources */,
 			);
@@ -472,6 +540,7 @@
 		};
 		281FBA561C7780DE0084523F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5289A6FC2AC0818FABD3AF0E /* Pods-tweety.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = tweety/Info.plist;
@@ -483,6 +552,7 @@
 		};
 		281FBA571C7780DE0084523F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6F2227809E4716D0C16A7BEA /* Pods-tweety.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = tweety/Info.plist;
