@@ -7,15 +7,30 @@
 //
 
 import UIKit
+import BDBOAuth1Manager
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
-
+    
+    // Function to retrieve any necessary keys from key.plist
+    func retrieveKeys(neededValue : String) -> String {
+        if let path = NSBundle.mainBundle().pathForResource("key", ofType: "plist"), dict = NSDictionary(contentsOfFile: path) as? [String: AnyObject] {
+            if neededValue == "key" {
+                return (dict["consumerKey"] as? String)!
+            }
+            
+            if neededValue == "secret" {
+                return (dict["consumerSecret"] as? String)!
+            }
+        }
+        return "Provide a paramater!"
+    }
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+
         return true
     }
 
@@ -41,6 +56,40 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
+    func application(app: UIApplication, openURL url: NSURL, options: [String : AnyObject]) -> Bool {
+        print(url.description)
+        let requestToken = BDBOAuth1Credential(queryString: url.query)
+        let twitterClient = BDBOAuth1SessionManager(baseURL: NSURL(string: "https://api.twitter.com/"), consumerKey: self.retrieveKeys("key"), consumerSecret: self.retrieveKeys("secret"))
+        
+        twitterClient.fetchAccessTokenWithPath("oauth/access_token", method: "POST", requestToken: requestToken, success: { (accessToken: BDBOAuth1Credential!) -> Void in
+            print("I got the access token")
+            print(self.retrieveKeys("key"))
+            
+            twitterClient.GET("1.1/account/verify_credentials.json", parameters: nil, progress: nil, success: { (task: NSURLSessionDataTask, response: AnyObject?) -> Void in
+                print("account: \(response)")
+                let user = response as? NSDictionary
+                print("name: \(user!["name"])")
+            }, failure: { (task: NSURLSessionDataTask?, error: NSError) -> Void in
+                
+            })
+            
+            twitterClient.GET("1.1/statuses/home_timeline.json", parameters: nil, progress: nil, success: { (task: NSURLSessionDataTask, response: AnyObject?) -> Void in
+                let tweets = response as! [NSDictionary]
+                for tweet in tweets {
+                    print("\(tweet["text"]!)")
+                }
+                
+                }, failure: { (task: NSURLSessionDataTask? , error: NSError) -> Void in
+                    print("something went wrong: \(error.localizedDescription)")
+                    
+            })
+            
+        }) { (error: NSError!) -> Void in
+                print("error: \(error.localizedDescription)")
+        }
+        
+        return true
+    }
 
 }
 
