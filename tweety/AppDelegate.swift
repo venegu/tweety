@@ -70,8 +70,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 print("account: \(response)")
                 
                 // Response as dictionary
-                let user = response as? NSDictionary
-                print("name: \(user!["name"])")
+                let userDictionary = response as? NSDictionary
+                let user = User(dictionary: userDictionary!)
+                print("name: \(user.name)")
+                print("screenname: \(user.screenname)")
+                print("profile_url: \(user.profileUrl)")
+                print("description: \(user.tagline)")
+                
             }, failure: { (task: NSURLSessionDataTask?, error: NSError) -> Void in
                 
             })
@@ -79,9 +84,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             // Making a GET request to the home_timeline endpoint
             twitterClient.GET("1.1/statuses/home_timeline.json", parameters: nil, progress: nil, success: { (task: NSURLSessionDataTask, response: AnyObject?) -> Void in
                 let tweets = response as! [NSDictionary]
-                for tweet in tweets {
+                /*for tweet in tweets {
                     print("\(tweet["text"]!)")
-                }
+                }*/
                 
             }, failure: { (task: NSURLSessionDataTask? , error: NSError) -> Void in
                     print("something went wrong: \(error.localizedDescription)")
