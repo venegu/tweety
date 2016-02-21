@@ -30,14 +30,14 @@ class LoginViewController: UIViewController {
         
         let twitterClient = BDBOAuth1SessionManager(baseURL: NSURL(string: "https://api.twitter.com/"), consumerKey: delegate.retrieveKeys("key"), consumerSecret: delegate.retrieveKeys("secret"))
         
-        // Clearing previous sessions - do this b/c of BDBO error
+        // Clearing previous sessions - do this b/c of BDBO bug
         twitterClient.deauthorize()
         
-        // Getting token and opening in tweety w/callback url
+        // Getting request token (oauth 1.0) and opening in tweety w/callback url - if successful return request token to allow us to send the user to the authorize url else error
         twitterClient.fetchRequestTokenWithPath("oauth/request_token", method: "GET", callbackURL: NSURL(string: "tweetydemo://oauth"), scope: nil, success: { (requestToken: BDBOAuth1Credential!) -> Void in
             print("I got a token!")
             
-            // Opening up authorize link in mobile safari & providing token
+            // Opening up authorize link in mobile safari & providing token - openURL switches out of your application into something else
             let url = NSURL(string: "https://api.twitter.com/oauth/authorize?oauth_token=\(requestToken.token)")!
             UIApplication.sharedApplication().openURL(url)
             

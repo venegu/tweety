@@ -8,7 +8,7 @@ Time spent: **X** hours spent in total
 
 The following **required** functionality is completed:
 
-- [ ] User can sign in using OAuth login flow
+- [x] User can sign in using OAuth login flow
 - [ ] User can view last 20 tweets from their home timeline
 - [ ] The current signed in user will be persisted across restarts
 - [ ] In the home timeline, user can view tweet with the user profile picture, username, tweet text, and timestamp.
@@ -26,10 +26,10 @@ The following **additional** features are implemented:
 
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 
-1. 
-2. 
+1.
+2.
 
-## Video Walkthrough 
+## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
 
@@ -37,9 +37,22 @@ Here's a walkthrough of implemented user stories:
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
+## Installation
+
+To run this app you will need to provide your own [Twitter key and secret](https://apps.twitter.com) and create you own `key.plist` file.
+
+In the `key.plist` file you will need to add your consumer key and consumer secret as the following keys respectively: `consumerKey` and `consumerSecret`. Please make sure that the type of each entry is a *String*. See the below example.
+
+The function that handles the secret values is called `retrieveKeys()` and can be found in the `AppDelegate.swift`.
+
 ## Notes
 
 Describe any challenges encountered while building the app.
+
+## Resources
+
+### Hiding API Keys
+   - http://stackoverflow.com/questions/30705214/call-app-delegate-method-from-view-controller
 
 ## License
 
