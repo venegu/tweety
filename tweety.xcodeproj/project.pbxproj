@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2818E00C1C7AA10D00592310 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2818E00B1C7AA10D00592310 /* User.swift */; };
+		2818E00E1C7AA17700592310 /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2818E00D1C7AA17700592310 /* Tweet.swift */; };
 		28194ADE1C7782D500F0B6BE /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28194ADD1C7782D500F0B6BE /* LoginViewController.swift */; };
 		281FBA311C7780DE0084523F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281FBA301C7780DE0084523F /* AppDelegate.swift */; };
 		281FBA361C7780DE0084523F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 281FBA341C7780DE0084523F /* Main.storyboard */; };
@@ -14,8 +16,7 @@
 		281FBA3B1C7780DE0084523F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 281FBA391C7780DE0084523F /* LaunchScreen.storyboard */; };
 		281FBA461C7780DE0084523F /* tweetyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281FBA451C7780DE0084523F /* tweetyTests.swift */; };
 		281FBA511C7780DE0084523F /* tweetyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281FBA501C7780DE0084523F /* tweetyUITests.swift */; };
-		2860DB481C7A187800B6D5FF /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2860DB471C7A187800B6D5FF /* User.swift */; };
-		2860DB4A1C7A18A000B6D5FF /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2860DB491C7A18A000B6D5FF /* Tweet.swift */; };
+		286A40641C7A99A200802BA5 /* TwitterClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286A40631C7A99A200802BA5 /* TwitterClient.swift */; };
 		28A3168D1C779C5C00E84228 /* key.plist in Resources */ = {isa = PBXBuildFile; fileRef = 28A3168C1C779C5C00E84228 /* key.plist */; };
 		7232772AE665C4B6B28FCD43 /* Pods_tweety.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42220A6070AA0CC268BEF65A /* Pods_tweety.framework */; };
 		7F91220729735657DFA9A327 /* Pods_tweetyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D06635DD4FA02BF8B124491 /* Pods_tweetyTests.framework */; };
@@ -39,6 +40,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2818E00B1C7AA10D00592310 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = tweety/User.swift; sourceTree = "<group>"; };
+		2818E00D1C7AA17700592310 /* Tweet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Tweet.swift; path = tweety/Tweet.swift; sourceTree = "<group>"; };
 		28194ADD1C7782D500F0B6BE /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		281FBA2D1C7780DE0084523F /* tweety.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tweety.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		281FBA301C7780DE0084523F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -52,8 +55,7 @@
 		281FBA4C1C7780DE0084523F /* tweetyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = tweetyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		281FBA501C7780DE0084523F /* tweetyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tweetyUITests.swift; sourceTree = "<group>"; };
 		281FBA521C7780DE0084523F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2860DB471C7A187800B6D5FF /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		2860DB491C7A18A000B6D5FF /* Tweet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
+		286A40631C7A99A200802BA5 /* TwitterClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwitterClient.swift; sourceTree = "<group>"; };
 		28A3168C1C779C5C00E84228 /* key.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = key.plist; sourceTree = "<group>"; };
 		42220A6070AA0CC268BEF65A /* Pods_tweety.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_tweety.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5289A6FC2AC0818FABD3AF0E /* Pods-tweety.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tweety.debug.xcconfig"; path = "Pods/Target Support Files/Pods-tweety/Pods-tweety.debug.xcconfig"; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 		281FBA2F1C7780DE0084523F /* tweety */ = {
 			isa = PBXGroup;
 			children = (
+				286A40621C7A998300802BA5 /* API */,
 				2860DB461C7A183F00B6D5FF /* Models */,
 				28194ADA1C77828900F0B6BE /* View Controllers */,
 				281FBA301C7780DE0084523F /* AppDelegate.swift */,
@@ -164,11 +167,19 @@
 		2860DB461C7A183F00B6D5FF /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				2860DB471C7A187800B6D5FF /* User.swift */,
-				2860DB491C7A18A000B6D5FF /* Tweet.swift */,
+				2818E00B1C7AA10D00592310 /* User.swift */,
+				2818E00D1C7AA17700592310 /* Tweet.swift */,
 			);
 			name = Models;
 			path = ..;
+			sourceTree = "<group>";
+		};
+		286A40621C7A998300802BA5 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				286A40631C7A99A200802BA5 /* TwitterClient.swift */,
+			);
+			name = API;
 			sourceTree = "<group>";
 		};
 		5D427FDA50F2040B3FD24AF5 /* Frameworks */ = {
@@ -422,10 +433,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				286A40641C7A99A200802BA5 /* TwitterClient.swift in Sources */,
+				2818E00E1C7AA17700592310 /* Tweet.swift in Sources */,
 				28194ADE1C7782D500F0B6BE /* LoginViewController.swift in Sources */,
 				281FBA311C7780DE0084523F /* AppDelegate.swift in Sources */,
-				2860DB481C7A187800B6D5FF /* User.swift in Sources */,
-				2860DB4A1C7A18A000B6D5FF /* Tweet.swift in Sources */,
+				2818E00C1C7AA10D00592310 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -15,7 +15,7 @@ class User: NSObject {
     var profileUrl: NSURL?
     var tagline: NSString?
     
-    // Constructor to deserialize properties retrieved from the API 
+    // Constructor to deserialize properties retrieved from the API
     init(dictionary: NSDictionary) {
         name = dictionary["name"] as? String
         screenname = dictionary["screen_name"] as? String

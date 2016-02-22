@@ -59,42 +59,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // When app changes from a link this function is called
     func application(app: UIApplication, openURL url: NSURL, options: [String : AnyObject]) -> Bool {
         let requestToken = BDBOAuth1Credential(queryString: url.query)
-        let twitterClient = BDBOAuth1SessionManager(baseURL: NSURL(string: "https://api.twitter.com/"), consumerKey: self.retrieveKeys("key"), consumerSecret: self.retrieveKeys("secret"))
+        let client = TwitterClient.sharedInstance
+        
+        
         
         // Getting access tokens
-        twitterClient.fetchAccessTokenWithPath("oauth/access_token", method: "POST", requestToken: requestToken, success: { (accessToken: BDBOAuth1Credential!) -> Void in
+        client.fetchAccessTokenWithPath("oauth/access_token", method: "POST", requestToken: requestToken, success: { (accessToken: BDBOAuth1Credential!) -> Void in
             print("I got the access token")
             
-            // Making a GET request to the verify_credentials endpoint (to get current account)
-            twitterClient.GET("1.1/account/verify_credentials.json", parameters: nil, progress: nil, success: { (task: NSURLSessionDataTask, response: AnyObject?) -> Void in
-                print("account: \(response)")
-                
-                // Response as dictionary
-                let userDictionary = response as? NSDictionary
-                let user = User(dictionary: userDictionary!)
-                print("name: \(user.name)")
-                print("screenname: \(user.screenname)")
-                print("profile_url: \(user.profileUrl)")
-                print("description: \(user.tagline)")
-                
-            }, failure: { (task: NSURLSessionDataTask?, error: NSError) -> Void in
-                
+            client.homeTimeline({ (tweets: [Tweet]) -> () in
+                for tweet in tweets {
+                    print(tweet.text)
+                }
+            }, failure: { (error: NSError) -> () in
+                    print(error.localizedDescription)
             })
             
-            // Making a GET request to the home_timeline endpoint
-            twitterClient.GET("1.1/statuses/home_timeline.json", parameters: nil, progress: nil, success: { (task: NSURLSessionDataTask, response: AnyObject?) -> Void in
-
-                
-                let dictionaries = response as! [NSDictionary]
-                let tweets = Tweet.tweetsWithArray(dictionaries)
-                
-                for tweet in tweets {
-                    print("\(tweet.text)")
-                }
-                
-            }, failure: { (task: NSURLSessionDataTask? , error: NSError) -> Void in
-                    print("something went wrong: \(error.localizedDescription)")
-                    
+            client.currentAccount({ (user: User) -> () in
+                print(user.name)
+                print(user.screenname)
+                print(user.profileUrl)
+                print(user.tagline)
+            }, failure: {(error: NSError) -> () in
+                    print(error.localizedDescription)
             })
             
         }) { (error: NSError!) -> Void in

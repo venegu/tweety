@@ -9,6 +9,7 @@
 import UIKit
 
 class Tweet: NSObject {
+    
     var text: NSString?
     var timestamp: NSDate?
     var retweetCount: Int = 0
@@ -20,7 +21,6 @@ class Tweet: NSObject {
         favoritesCount = (dictionary["favourites_count"] as? Int) ?? 0
         
         let timestampString = dictionary["created_at"] as? String
-        
         
         if let timestampString = timestampString {
             let formatter = NSDateFormatter()
@@ -39,4 +39,5 @@ class Tweet: NSObject {
         }
         return tweets
     }
+
 }
