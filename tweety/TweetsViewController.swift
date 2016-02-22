@@ -61,6 +61,10 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
     
+    @IBAction func onLogoutButton(sender: AnyObject) {
+        TwitterClient.sharedInstance.logout()
+    }
+    
 
     /*
     // MARK: - Navigation

@@ -32,6 +32,8 @@ class User: NSObject {
     
     static var _currentUser: User?
     
+    static var userDidLogoutNotification = "UserDidLogout"
+    
     // Persisting current user
     class var currentUser: User? {
         // Getter for computed properties

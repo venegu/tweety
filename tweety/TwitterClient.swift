@@ -36,6 +36,12 @@ class TwitterClient: BDBOAuth1SessionManager {
         }
     }
     
+    func logout() {
+        User.currentUser = nil
+        deauthorize()
+        NSNotificationCenter.defaultCenter().postNotificationName(User.userDidLogoutNotification, object: nil)
+    }
+    
     func handleOpenUrl(url: NSURL) {
         let requestToken = BDBOAuth1Credential(queryString: url.query)
         // Getting access tokens

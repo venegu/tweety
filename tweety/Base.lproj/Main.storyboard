@@ -104,7 +104,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="AKC-XJ-KFn"/>
+                    <navigationItem key="navigationItem" id="AKC-XJ-KFn">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="Hth-Y4-Ggw">
+                            <connections>
+                                <action selector="onLogoutButton:" destination="w0S-5i-ql1" id="rww-4u-v67"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="tableView" destination="zJt-Re-OtO" id="UOz-gA-HbW"/>
