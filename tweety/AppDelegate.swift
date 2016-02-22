@@ -83,10 +83,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             // Making a GET request to the home_timeline endpoint
             twitterClient.GET("1.1/statuses/home_timeline.json", parameters: nil, progress: nil, success: { (task: NSURLSessionDataTask, response: AnyObject?) -> Void in
-                let tweets = response as! [NSDictionary]
-                /*for tweet in tweets {
-                    print("\(tweet["text"]!)")
-                }*/
+
+                
+                let dictionaries = response as! [NSDictionary]
+                let tweets = Tweet.tweetsWithArray(dictionaries)
+                
+                for tweet in tweets {
+                    print("\(tweet.text)")
+                }
                 
             }, failure: { (task: NSURLSessionDataTask? , error: NSError) -> Void in
                     print("something went wrong: \(error.localizedDescription)")
