@@ -12,7 +12,7 @@ class Tweet: NSObject {
     
     var user: User?
     var text: NSString?
-    var timestamp: NSDate?
+    var timestamp: String?
     var timestampString: NSString?
     var retweetCount: Int = 0
     var favoritesCount: Int = 0
@@ -28,11 +28,10 @@ class Tweet: NSObject {
         
         if let timestampString = timestampString {
             let formatter = NSDateFormatter()
+            formatter.timeZone = NSTimeZone.localTimeZone()
             formatter.dateFormat = "EEE MMM d HH:mm:ss Z y"
-            timestamp = formatter.dateFromString(timestampString as String)
-            //print(timestamp)
-            
-            //timestamp = NSDate.offsetFrom(time!)
+            let times = formatter.dateFromString(timestampString as String)?.timeIntervalSinceNow
+            timestamp = Tweet.gettingTimestamp(times!)
             
         }
         
@@ -47,62 +46,43 @@ class Tweet: NSObject {
         }
         return tweets
     }
+    
+    class func gettingTimestamp(time : NSTimeInterval) -> String {
+        let timeSeconds = -Int(time)
+        var timeSince: Int = 0
+        print(timeSeconds)
+        
+        if timeSeconds == 0 {
+            return "Now"
+        }
+        
+        if timeSeconds <= 60 {
+            timeSince = timeSeconds
+            return "\(timeSince)s"
+        }
+        
+        if timeSeconds/60 < 60 {
+            timeSince = timeSeconds/60
+            return "\(timeSince)m"
+        }
+        
+        if (timeSeconds/60)/60 < 24 {
+            timeSince = (timeSeconds/60)/60
+            return "\(timeSince)h"
+        }
+        
+        if ((timeSeconds/60)/60)/24 < 365 {
+            timeSince = ((timeSeconds/60)/60)/24
+            return "\(timeSince)d"
+        }
+        
+        if (((timeSeconds/60)/60)/24)/365 < 100 {
+            timeSince = ((((timeSeconds)/60)/60)/24)/365
+            return "\(timeSince)y"
+        }
+        
+        return "\(timeSince)"
+        
+    }
 
 }
-
-/*extension NSDate {
-    
-    func yearsFrom(date: NSDate) -> Int{
-        return NSCalendar.currentCalendar().components(.Year, fromDate: date, toDate: self, options: []).year
-    }
-    
-    func monthsFrom(date: NSDate) -> Int{
-        return NSCalendar.currentCalendar().components(.Month, fromDate: date, toDate: self, options: []).month
-    }
-    
-    func weeksFrom(date: NSDate) -> Int{
-        return NSCalendar.currentCalendar().components(.WeekOfYear, fromDate: date, toDate: self, options: []).weekOfYear
-    }
-    
-    func daysFrom(date: NSDate) -> Int{
-        return NSCalendar.currentCalendar().components(.Day, fromDate: date, toDate: self, options: []).day
-    }
-    
-    func hoursFrom(date: NSDate) -> Int{
-        return NSCalendar.currentCalendar().components(.Hour, fromDate: date, toDate: self, options: []).hour
-    }
-    
-    func minutesFrom(date: NSDate) -> Int{
-        return NSCalendar.currentCalendar().components(.Minute, fromDate: date, toDate: self, options: []).minute
-    }
-    
-    func secondsFrom(date: NSDate) -> Int{
-        return NSCalendar.currentCalendar().components(.Second, fromDate: date, toDate: self, options: []).second
-    }
-    
-    func offsetFrom(date: NSDate) -> String {
-        if yearsFrom(date) > 0 {
-            print("\(yearsFrom(date))y")
-        }
-        if monthsFrom(date) > 0 {
-            print("\(monthsFrom(date))M")
-        }
-        if weeksFrom(date) > 0 {
-            print("\(weeksFrom(date))w")
-        }
-        if daysFrom(date) > 0 {
-            print("\(daysFrom(date))d")
-        }
-        if hoursFrom(date) > 0 {
-            print("\(hoursFrom(date))h")
-        }
-        if minutesFrom(date) > 0 {
-            print("\(minutesFrom(date))m")
-        }
-        if secondsFrom(date) > 0 {
-            print("\(secondsFrom(date))s")
-        }
-        return ""
-    }
-}
-*/

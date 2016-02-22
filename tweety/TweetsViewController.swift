@@ -50,7 +50,7 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         cell.userImageView.setImageWithURL(tweets![indexPath.row].user!.profileUrl!)
         cell.nameLabel.text = tweets![indexPath.row].user!.name! as String
         cell.userHandleLabel.text = "@\(tweets![indexPath.row].user!.name!)"
-        //cell.timestampLabel.text = tweets![indexPath.row].timestampString!  as String
+        cell.timestampLabel.text = tweets![indexPath.row].timestamp!
         cell.tweetLabel.text = tweets![indexPath.row].text! as String
         
         return cell
