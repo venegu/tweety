@@ -27,7 +27,6 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
                 print(error.localizedDescription)
         })
 
-
         // Do any additional setup after loading the view.
     }
 
@@ -48,9 +47,11 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("TimelineCell", forIndexPath: indexPath) as! TimelineCell
         
+        cell.userImageView.setImageWithURL(tweets![indexPath.row].user!.profileUrl!)
+        cell.nameLabel.text = tweets![indexPath.row].user!.name! as String
+        cell.userHandleLabel.text = "@\(tweets![indexPath.row].user!.name!)"
+        //cell.timestampLabel.text = tweets![indexPath.row].timestampString!  as String
         cell.tweetLabel.text = tweets![indexPath.row].text! as String
-        
-        // Setting table cell color on selection
         
         return cell
     }

@@ -40,7 +40,7 @@ class TwitterClient: BDBOAuth1SessionManager {
         let requestToken = BDBOAuth1Credential(queryString: url.query)
         // Getting access tokens
         fetchAccessTokenWithPath("oauth/access_token", method: "POST", requestToken: requestToken, success: { (accessToken: BDBOAuth1Credential!) -> Void in
-            print("I got the access token")
+            //print("I got the access token")
             
             self.loginSuccess?()
             
@@ -74,6 +74,7 @@ class TwitterClient: BDBOAuth1SessionManager {
             
             let dictionaries = response as! [NSDictionary]
             let tweets = Tweet.tweetsWithArray(dictionaries)
+            //print("Tweets: \(dictionaries)")
             
             success(tweets)
             

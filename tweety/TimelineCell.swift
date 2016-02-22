@@ -11,6 +11,10 @@ import UIKit
 class TimelineCell: UITableViewCell {
 
     @IBOutlet weak var tweetLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var userImageView: UIImageView!
+    @IBOutlet weak var userHandleLabel: UILabel!
+    @IBOutlet weak var timestampLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
