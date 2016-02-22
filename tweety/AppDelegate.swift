@@ -58,35 +58,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     // When app changes from a link this function is called
     func application(app: UIApplication, openURL url: NSURL, options: [String : AnyObject]) -> Bool {
-        let requestToken = BDBOAuth1Credential(queryString: url.query)
-        let client = TwitterClient.sharedInstance
         
-        
-        
-        // Getting access tokens
-        client.fetchAccessTokenWithPath("oauth/access_token", method: "POST", requestToken: requestToken, success: { (accessToken: BDBOAuth1Credential!) -> Void in
-            print("I got the access token")
-            
-            client.homeTimeline({ (tweets: [Tweet]) -> () in
-                for tweet in tweets {
-                    print(tweet.text)
-                }
-            }, failure: { (error: NSError) -> () in
-                    print(error.localizedDescription)
-            })
-            
-            client.currentAccount({ (user: User) -> () in
-                print(user.name)
-                print(user.screenname)
-                print(user.profileUrl)
-                print(user.tagline)
-            }, failure: {(error: NSError) -> () in
-                    print(error.localizedDescription)
-            })
-            
-        }) { (error: NSError!) -> Void in
-                print("error: \(error.localizedDescription)")
-        }
+        TwitterClient.sharedInstance.handleOpenUrl(url)
         
         return true
     }

@@ -26,21 +26,15 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func onLoginButton(sender: AnyObject) {
+        let client = TwitterClient.sharedInstance
         
-        // Clearing previous sessions - do this b/c of BDBO bug
-        TwitterClient.sharedInstance.deauthorize()
-        
-        // Getting request token (oauth 1.0) and opening in tweety w/callback url - if successful return request token to allow us to send the user to the authorize url else error
-        TwitterClient.sharedInstance.fetchRequestTokenWithPath("oauth/request_token", method: "GET", callbackURL: NSURL(string: "tweetydemo://oauth"), scope: nil, success: { (requestToken: BDBOAuth1Credential!) -> Void in
-            print("I got a token!")
-            
-            // Opening up authorize link in mobile safari & providing token - openURL switches out of your application into something else
-            let url = NSURL(string: "https://api.twitter.com/oauth/authorize?oauth_token=\(requestToken.token)")!
-            UIApplication.sharedApplication().openURL(url)
-            
-        }) { (error: NSError!) -> Void in
-                print("error: \(error.localizedDescription)")
+        client.login({ () -> () in
+            print("I've logged in :)")
+        }) { (error: NSError) -> () in
+                print("Error: \(error.localizedDescription)")
         }
+        // Clearing previous sessions - do this b/c of BDBO bug
+        
     }
 
     /*
