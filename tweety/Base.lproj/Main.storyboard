@@ -117,7 +117,7 @@
         <!--Navigation Controller-->
         <scene sceneID="pKL-V8-0Lm">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="NDT-gG-tT3" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="TweetsNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="NDT-gG-tT3" sceneMemberID="viewController">
                     <toolbarItems/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="0OP-Pw-Mhz">

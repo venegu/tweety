@@ -42,16 +42,17 @@ class TwitterClient: BDBOAuth1SessionManager {
         fetchAccessTokenWithPath("oauth/access_token", method: "POST", requestToken: requestToken, success: { (accessToken: BDBOAuth1Credential!) -> Void in
             //print("I got the access token")
             
-            self.loginSuccess?()
-            
-            /*homeTimeline({ (tweets: [Tweet]) -> () in
-                for tweet in tweets {
-                    print(tweet.text)
-                }
-                }, failure: { (error: NSError) -> () in
-                    print(error.localizedDescription)
+            self.currentAccount({ (user: User) -> () in
+                
+                // Calling setter and saving user
+                User.currentUser = user
+                self.loginSuccess?()
+            }, failure: { (error: NSError) -> () in
+                self.loginFailure?(error)
             })
             
+            
+            /*
             currentAccount({ (user: User) -> () in
                 print(user.name)
                 print(user.screenname)
