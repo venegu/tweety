@@ -53,30 +53,30 @@ class TwitterClient: BDBOAuth1SessionManager {
                 // Calling setter and saving user
                 User.currentUser = user
                 self.loginSuccess?()
-            }, failure: { (error: NSError) -> () in
-                self.loginFailure?(error)
+                }, failure: { (error: NSError) -> () in
+                    self.loginFailure?(error)
             })
             
             
             /*
             currentAccount({ (user: User) -> () in
-                print(user.name)
-                print(user.screenname)
-                print(user.profileUrl)
-                print(user.tagline)
-                }, failure: {(error: NSError) -> () in
-                    print(error.localizedDescription)
+            print(user.name)
+            print(user.screenname)
+            print(user.profileUrl)
+            print(user.tagline)
+            }, failure: {(error: NSError) -> () in
+            print(error.localizedDescription)
             })*/
             
             }) { (error: NSError!) -> Void in
                 self.loginFailure?(error)
         }
-
+        
     }
     
-    func homeTimeline(success: ([Tweet]) -> (), failure: (NSError) -> ()) {
+    func homeTimeline(parameters: NSDictionary?, success: ([Tweet]) -> (), failure: (NSError) -> ()) {
         // Making a GET request to the home_timeline endpoint
-        GET("1.1/statuses/home_timeline.json", parameters: nil, progress: nil, success: { (task: NSURLSessionDataTask, response: AnyObject?) -> Void in
+        GET("1.1/statuses/home_timeline.json", parameters: parameters, progress: nil, success: { (task: NSURLSessionDataTask, response: AnyObject?) -> Void in
             
             
             let dictionaries = response as! [NSDictionary]
@@ -85,7 +85,7 @@ class TwitterClient: BDBOAuth1SessionManager {
             
             success(tweets)
             
-        }, failure: { (task: NSURLSessionDataTask? , error: NSError) -> Void in
+            }, failure: { (task: NSURLSessionDataTask? , error: NSError) -> Void in
                 failure(error)
         })
     }
@@ -101,7 +101,7 @@ class TwitterClient: BDBOAuth1SessionManager {
             
             success(user)
             
-        }, failure: { (task: NSURLSessionDataTask?, error: NSError) -> Void in
+            }, failure: { (task: NSURLSessionDataTask?, error: NSError) -> Void in
                 failure(error)
         })
     }
