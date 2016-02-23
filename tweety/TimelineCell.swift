@@ -25,6 +25,7 @@ class TimelineCell: UITableViewCell {
     
     var tweet: Tweet! {
         didSet {
+            tweetId = tweet.tweetId
             tweetLabel.text = tweet.text as? String
         }
     }
