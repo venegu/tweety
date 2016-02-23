@@ -605,6 +605,7 @@
 		};
 		281FBA571C7780DE0084523F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6F2227809E4716D0C16A7BEA /* Pods-tweety.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = tweety/Info.plist;

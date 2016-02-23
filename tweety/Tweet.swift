@@ -11,6 +11,7 @@ import UIKit
 class Tweet: NSObject {
     
     var user: User?
+    var tweetId: Int = 0
     var text: NSString?
     var timestamp: String?
     var timestampString: NSString?
@@ -20,6 +21,7 @@ class Tweet: NSObject {
     init(dictionary: NSDictionary) {
         
         user = User(dictionary: dictionary["user"] as! NSDictionary)
+        tweetId = (dictionary["id"] as? Int) ?? 0
         text = dictionary["text"] as? String
         retweetCount = (dictionary["retweet_count"] as? Int) ?? 0
         favoritesCount = (dictionary["favourites_count"] as? Int) ?? 0
@@ -50,7 +52,6 @@ class Tweet: NSObject {
     class func gettingTimestamp(time : NSTimeInterval) -> String {
         let timeSeconds = -Int(time)
         var timeSince: Int = 0
-        print(timeSeconds)
         
         if timeSeconds == 0 {
             return "Now"

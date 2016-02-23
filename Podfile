@@ -4,7 +4,8 @@
 use_frameworks!
 
 target 'tweety' do
-    pod 'AFNetworking', '3.0.0'
+    # pod 'AFNetworking', '3.0.0'
+    pod 'Alamofire', '3.2.0'
     pod 'BDBOAuth1Manager', '2.0.0'
 
 end

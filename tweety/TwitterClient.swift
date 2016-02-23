@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 import BDBOAuth1Manager
 
 let delegate = UIApplication.sharedApplication().delegate as! AppDelegate
@@ -74,9 +75,9 @@ class TwitterClient: BDBOAuth1SessionManager {
 
     }
     
-    func homeTimeline(success: ([Tweet]) -> (), failure: (NSError) -> ()) {
+    func homeTimeline(parameters: NSDictionary?, success: ([Tweet]) -> (), failure: (NSError) -> ()) {
         // Making a GET request to the home_timeline endpoint
-        GET("1.1/statuses/home_timeline.json", parameters: nil, progress: nil, success: { (task: NSURLSessionDataTask, response: AnyObject?) -> Void in
+        GET("1.1/statuses/home_timeline.json", parameters: parameters, progress: nil, success: { (task: NSURLSessionDataTask, response: AnyObject?) -> Void in
             
             
             let dictionaries = response as! [NSDictionary]
