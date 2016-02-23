@@ -30,6 +30,7 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
         //print(apiParameters)
+        
         tableView.dataSource = self
         tableView.delegate = self
         
@@ -85,6 +86,13 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         tweetIdArray.sortInPlace()
         print("Last tweet id: \(tweetIdLast)")
         
+        if tweets![indexPath.row].retweetCount > 0 {
+            cell.retweetCount.text = String(tweets![indexPath.row].retweetCount)
+        }
+        
+        if tweets![indexPath.row].favoritesCount > 0 {
+            cell.favoritedCount.text = String(tweets![indexPath.row].favoritesCount)
+        }
         return cell
     }
     
