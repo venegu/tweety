@@ -90,8 +90,8 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
             cell.retweetCount.text = String(tweets![indexPath.row].retweetCount)
         }
         
-        if tweets![indexPath.row].favoritesCount > 0 {
-            cell.favoritedCount.text = String(tweets![indexPath.row].favoritesCount)
+        if tweets![indexPath.row].favoriteCount > 0 {
+            cell.favoritedCount.text = String(tweets![indexPath.row].favoriteCount)
         }
         return cell
     }

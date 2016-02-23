@@ -21,6 +21,14 @@ class TimelineCell: UITableViewCell {
     @IBOutlet weak var retweetButton: UIButton!
     @IBOutlet weak var favoriteButton: UIButton!
     
+    var tweetId : Int?
+    
+    var tweet: Tweet! {
+        didSet {
+            tweetLabel.text = tweet.text as? String
+        }
+    }
+    
     var didRetweet: Bool = false
     var didFavorite: Bool = false
     
@@ -42,6 +50,7 @@ class TimelineCell: UITableViewCell {
     
 
     @IBAction func onRetweet(sender: AnyObject) {
+        print(tweetId)
         
     }
     
