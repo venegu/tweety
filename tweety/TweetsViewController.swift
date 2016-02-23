@@ -36,7 +36,7 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         TwitterClient.sharedInstance.homeTimeline(nil, success: { (tweets: [Tweet]) -> () in
             self.tweets = tweets
             self.tableView.reloadData()
-            }, failure: { (error: NSError) -> () in
+        }, failure: { (error: NSError) -> () in
                 print(error.localizedDescription)
         })
         
@@ -49,6 +49,11 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         var insets = tableView.contentInset
         insets.bottom += InfiniteScrollActivityView.defaultHeight
         tableView.contentInset = insets
+        
+        // Initialize a UIRefreshControl
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: "refreshControlAction:", forControlEvents: UIControlEvents.ValueChanged)
+        tableView.insertSubview(refreshControl, atIndex: 0)
         
         // Do any additional setup after loading the view.
     }
@@ -69,8 +74,8 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("TimelineCell", forIndexPath: indexPath) as! TimelineCell
-        // Look here l8r
-        //cell.userImageView.setImageWithURL(tweets![indexPath.row].user!.profileUrl!)
+
+        cell.userImageView.setImageWithURL(tweets![indexPath.row].user!.profileUrl!)
         cell.nameLabel.text = tweets![indexPath.row].user!.name! as String
         cell.userHandleLabel.text = "@\(tweets![indexPath.row].user!.name!)"
         cell.timestampLabel.text = tweets![indexPath.row].timestamp!
@@ -109,12 +114,12 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
                 loadingMoreView!.startAnimating()
                 
                 // Code to load more results
-                loadMoreData()
+                loadData()
             }
         }
     }
     
-    func loadMoreData() {
+    func loadData() {
         TwitterClient.sharedInstance.homeTimeline(apiParameters, success: { (tweets: [Tweet]) -> () in
             self.loadingMoreView!.stopAnimating()
             
@@ -126,10 +131,21 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
             self.tableView.reloadData()
             self.offset = self.offset! + 20
             self.isMoreDataLoading = false
-            }, failure: {(error: NSError) -> () in
+        }, failure: {(error: NSError) -> () in
                 print(error.localizedDescription)
         })
         
+    }
+    
+    func refreshControlAction(refreshControl: UIRefreshControl) {
+        
+        TwitterClient.sharedInstance.homeTimeline(nil, success: { (tweets: [Tweet]) -> () in
+            self.tweets = tweets
+            self.tableView.reloadData()
+            refreshControl.endRefreshing()
+        }, failure: { (error: NSError) -> () in
+                print(error.localizedDescription)
+        })
     }
     
     /*
