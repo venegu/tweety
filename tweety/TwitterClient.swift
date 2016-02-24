@@ -105,4 +105,25 @@ class TwitterClient: BDBOAuth1SessionManager {
                 failure(error)
         })
     }
+    
+    func retweet(tweetId: String) {
+        POST("1.1/statuses/retweet/\(tweetId).json", parameters: nil, progress: nil,
+            success: { (task: NSURLSessionDataTask, response: AnyObject?) -> Void in
+                print("Retweeting a tweet!")
+        }, failure: { (task: NSURLSessionDataTask?, error: NSError) -> Void in
+                print(error.localizedDescription)
+        })
+    }
+    
+    func unRetweet(tweetId: String) {
+        POST("1.1/statuses/unretweet/\(tweetId).json", parameters: nil, progress: nil,
+            success: { (task: NSURLSessionDataTask, response: AnyObject?) -> Void in
+                print("Unretweeting a tweet!")
+            },
+            failure: { (task: NSURLSessionDataTask?, error: NSError) -> Void in
+                print(error.localizedDescription)
+            }
+        )
+    }
+
 }

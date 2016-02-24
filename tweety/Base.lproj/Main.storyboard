@@ -126,7 +126,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="favoriteButton" destination="VdH-CX-fyr" id="2Y4-Z7-L9g"/>
-                                            <outlet property="favoritedCount" destination="6Fk-nA-OI7" id="F8H-pT-977"/>
+                                            <outlet property="favoriteCount" destination="6Fk-nA-OI7" id="ia7-4Q-QuJ"/>
                                             <outlet property="nameLabel" destination="oAs-de-l70" id="IiH-bs-vKU"/>
                                             <outlet property="replyButton" destination="Apj-nL-jeO" id="Ztl-1f-n1A"/>
                                             <outlet property="retweetButton" destination="NM7-L4-LQU" id="Qsi-A2-MBu"/>

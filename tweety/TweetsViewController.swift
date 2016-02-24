@@ -84,15 +84,18 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         tweetIdLast = tweets![indexPath.row].tweetId
         tweetIdArray.append(tweetIdLast)
         tweetIdArray.sortInPlace()
-        print("Last tweet id: \(tweetIdLast)")
+        //print("Last tweet id: \(tweetIdLast)")
         
-        if tweets![indexPath.row].retweetCount > 0 {
-            cell.retweetCount.text = String(tweets![indexPath.row].retweetCount)
-        }
+        
+        cell.retweetCount.text = String(tweets![indexPath.row].retweetCount)
+        cell.retweetCounter = tweets![indexPath.row].retweetCount
         
         if tweets![indexPath.row].favoriteCount > 0 {
-            cell.favoritedCount.text = String(tweets![indexPath.row].favoriteCount)
+            cell.favoriteCount.text = String(tweets![indexPath.row].favoriteCount)
         }
+        
+        cell.tweetId = String(tweets![indexPath.row].tweetId)
+        
         return cell
     }
     

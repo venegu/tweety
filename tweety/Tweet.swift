@@ -24,7 +24,9 @@ class Tweet: NSObject {
         tweetId = (dictionary["id"] as? Int) ?? 0
         text = dictionary["text"] as? String
         retweetCount = (dictionary["retweet_count"] as? Int) ?? 0
-        favoriteCount = (dictionary["favourites_count"] as? Int) ?? 0
+        favoriteCount = (dictionary["favorite_count"] as? Int) ?? 0
+        
+        print("Fav: \(favoriteCount)")
         
         timestampString = dictionary["created_at"] as? String
         
@@ -47,6 +49,9 @@ class Tweet: NSObject {
             tweets.append(tweet)
         }
         return tweets
+        
+        
+        
     }
     
     class func gettingTimestamp(time : NSTimeInterval) -> String {

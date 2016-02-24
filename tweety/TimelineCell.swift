@@ -16,17 +16,22 @@ class TimelineCell: UITableViewCell {
     @IBOutlet weak var userHandleLabel: UILabel!
     @IBOutlet weak var timestampLabel: UILabel!
     @IBOutlet weak var retweetCount: UILabel!
-    @IBOutlet weak var favoritedCount: UILabel!
+    @IBOutlet weak var favoriteCount: UILabel!
+    
     @IBOutlet weak var replyButton: UIButton!
     @IBOutlet weak var retweetButton: UIButton!
     @IBOutlet weak var favoriteButton: UIButton!
     
-    var tweetId : Int?
+    var tweetId : String?
+    var retweetCounter : Int?
     
     var tweet: Tweet! {
         didSet {
-            tweetId = tweet.tweetId
+            tweetId = String(tweet.tweetId)
             tweetLabel.text = tweet.text as? String
+            retweetCount.text = String(tweet.retweetCount)
+            favoriteCount.text = String(tweet.favoriteCount)
+            retweetCounter = tweet.favoriteCount
         }
     }
     
@@ -37,7 +42,7 @@ class TimelineCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         retweetCount.text = ""
-        favoritedCount.text = ""
+        favoriteCount.text = ""
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
@@ -51,8 +56,22 @@ class TimelineCell: UITableViewCell {
     
 
     @IBAction func onRetweet(sender: AnyObject) {
-        print(tweetId)
-        
+        if !didRetweet {
+            print(retweetCounter!)
+            TwitterClient.sharedInstance.retweet(tweetId!)
+            
+            retweetButton.setImage(UIImage(named: "retweet-action-on-pressed_green.png"), forState: UIControlState.Normal)
+            retweetButton.setImage(UIImage(named: "retweet-action-on-green.png"), forState: UIControlState.Normal)
+            retweetCounter = retweetCounter! + 1
+            retweetCount.text = "\(retweetCounter!)"
+            didRetweet = true
+            
+        } else {
+            TwitterClient.sharedInstance.unRetweet(tweetId!)
+            retweetButton.setImage(UIImage(named: "retweet-action_default.png"), forState: UIControlState.Normal)
+            retweetCounter = retweetCounter! - 1
+            retweetCount.text = "\(retweetCounter!)"
+        }
     }
     
     
