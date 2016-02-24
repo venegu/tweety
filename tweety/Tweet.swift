@@ -17,6 +17,8 @@ class Tweet: NSObject {
     var timestampString: NSString?
     var retweetCount: Int = 0
     var favoriteCount: Int = 0
+    var retweeted: Bool?
+    var favorited: Bool?
     
     init(dictionary: NSDictionary) {
         
@@ -25,9 +27,8 @@ class Tweet: NSObject {
         text = dictionary["text"] as? String
         retweetCount = (dictionary["retweet_count"] as? Int) ?? 0
         favoriteCount = (dictionary["favorite_count"] as? Int) ?? 0
-        
-        print("Fav: \(favoriteCount)")
-        
+        retweeted = dictionary["retweeted"] as? Bool
+        favorited = dictionary["favorited"] as? Bool
         timestampString = dictionary["created_at"] as? String
         
         if let timestampString = timestampString {
@@ -36,7 +37,6 @@ class Tweet: NSObject {
             formatter.dateFormat = "EEE MMM d HH:mm:ss Z y"
             let times = formatter.dateFromString(timestampString as String)?.timeIntervalSinceNow
             timestamp = Tweet.gettingTimestamp(times!)
-            
         }
         
     }
@@ -49,9 +49,6 @@ class Tweet: NSObject {
             tweets.append(tweet)
         }
         return tweets
-        
-        
-        
     }
     
     class func gettingTimestamp(time : NSTimeInterval) -> String {
@@ -88,7 +85,6 @@ class Tweet: NSObject {
         }
         
         return "\(timeSince)"
-        
     }
     
 }

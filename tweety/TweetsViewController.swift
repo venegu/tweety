@@ -75,26 +75,12 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("TimelineCell", forIndexPath: indexPath) as! TimelineCell
-
-        cell.userImageView.setImageWithURL(tweets![indexPath.row].user!.profileUrl!)
-        cell.nameLabel.text = tweets![indexPath.row].user!.name! as String
-        cell.userHandleLabel.text = "@\(tweets![indexPath.row].user!.name!)"
-        cell.timestampLabel.text = tweets![indexPath.row].timestamp!
-        cell.tweetLabel.text = tweets![indexPath.row].text! as String
-        tweetIdLast = tweets![indexPath.row].tweetId
-        tweetIdArray.append(tweetIdLast)
-        tweetIdArray.sortInPlace()
-        //print("Last tweet id: \(tweetIdLast)")
         
-        
-        cell.retweetCount.text = String(tweets![indexPath.row].retweetCount)
-        cell.retweetCounter = tweets![indexPath.row].retweetCount
-        
-        if tweets![indexPath.row].favoriteCount > 0 {
-            cell.favoriteCount.text = String(tweets![indexPath.row].favoriteCount)
+        if tweets != nil {
+            cell.tweet = tweets![indexPath.row]
         }
         
-        cell.tweetId = String(tweets![indexPath.row].tweetId)
+        tweetIdLast = tweets![indexPath.row].tweetId
         
         return cell
     }
@@ -134,11 +120,12 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         TwitterClient.sharedInstance.homeTimeline(apiParameters, success: { (tweets: [Tweet]) -> () in
             self.loadingMoreView!.stopAnimating()
             
-            if (tweets != [] ) {
+            if tweets != [] {
                 for tweet in tweets {
                     self.tweets.append(tweet)
                 }
             }
+            
             self.tableView.reloadData()
             self.offset = self.offset! + 20
             self.isMoreDataLoading = false

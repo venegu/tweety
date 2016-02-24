@@ -107,23 +107,35 @@ class TwitterClient: BDBOAuth1SessionManager {
     }
     
     func retweet(tweetId: String) {
-        POST("1.1/statuses/retweet/\(tweetId).json", parameters: nil, progress: nil,
-            success: { (task: NSURLSessionDataTask, response: AnyObject?) -> Void in
+        POST("1.1/statuses/retweet/\(tweetId).json", parameters: nil, progress: nil, success: { (task: NSURLSessionDataTask, response: AnyObject?) -> Void in
                 print("Retweeting a tweet!")
         }, failure: { (task: NSURLSessionDataTask?, error: NSError) -> Void in
                 print(error.localizedDescription)
         })
     }
     
-    func unRetweet(tweetId: String) {
-        POST("1.1/statuses/unretweet/\(tweetId).json", parameters: nil, progress: nil,
-            success: { (task: NSURLSessionDataTask, response: AnyObject?) -> Void in
+    func unretweet(tweetId: String) {
+        POST("1.1/statuses/unretweet/\(tweetId).json", parameters: nil, progress: nil, success: { (task: NSURLSessionDataTask, response: AnyObject?) -> Void in
                 print("Unretweeting a tweet!")
-            },
-            failure: { (task: NSURLSessionDataTask?, error: NSError) -> Void in
+        }) { (task: NSURLSessionDataTask?, error: NSError) -> Void in
                 print(error.localizedDescription)
-            }
-        )
+        }
+    }
+    
+    func favorite(tweetId: String) {
+        POST("1.1/favorites/create.json?id=\(tweetId)", parameters: nil, progress: nil, success: { (task: NSURLSessionDataTask, response: AnyObject?) -> Void in
+            print("Favoriting a tweet")
+        }) { (task: NSURLSessionDataTask?, error: NSError) -> Void in
+            print(error.localizedDescription)
+        }
+    }
+    
+    func unfavorite(tweetId: String) {
+        POST("/1.1/favorites/destroy.json?id=\(tweetId)", parameters: nil, progress: nil, success: { (task: NSURLSessionDataTask, response: AnyObject?) -> Void in
+            print("Unfavoriting a tweet")
+            }) { (task: NSURLSessionDataTask?, error: NSError) -> Void in
+                print(error.localizedDescription)
+        }
     }
 
 }
