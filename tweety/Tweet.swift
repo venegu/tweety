@@ -17,19 +17,37 @@ class Tweet: NSObject {
     var timestampString: NSString?
     var retweetCount: Int = 0
     var favoriteCount: Int = 0
-    var retweeted: Bool?
-    var favorited: Bool?
+    var retweetedByCurrentUser: Bool? = false
+    var favoritedByCurrentUser: Bool? = false
+    var wasRetweeted = false
+    var wasRetweetedBy: String?
+    var imageUrl: NSURL?
     
     init(dictionary: NSDictionary) {
         
-        user = User(dictionary: dictionary["user"] as! NSDictionary)
-        tweetId = (dictionary["id"] as? Int) ?? 0
-        text = dictionary["text"] as? String
-        retweetCount = (dictionary["retweet_count"] as? Int) ?? 0
-        favoriteCount = (dictionary["favorite_count"] as? Int) ?? 0
-        retweeted = dictionary["retweeted"] as? Bool
-        favorited = dictionary["favorited"] as? Bool
-        timestampString = dictionary["created_at"] as? String
+        if let retweetedTweet = dictionary["retweeted_status"] {
+            user = User(dictionary: (retweetedTweet["user"] as? NSDictionary)!)
+            tweetId = (retweetedTweet["id"] as? Int) ?? 0
+            text = retweetedTweet["text"] as? String
+            retweetCount = (retweetedTweet["retweeted_count"] as? Int) ?? 0
+            favoriteCount = (retweetedTweet["favorite_count"] as? Int) ?? 0
+            wasRetweeted = true
+            wasRetweetedBy = dictionary["user"]!["name"] as? String
+            timestampString = retweetedTweet["created_at"] as? String
+        
+        } else {
+            user = User(dictionary: dictionary["user"] as! NSDictionary)
+            tweetId = (dictionary["id"] as? Int) ?? 0
+            text = dictionary["text"] as? String
+            retweetCount = (dictionary["retweet_count"] as? Int) ?? 0
+            favoriteCount = (dictionary["favorite_count"] as? Int) ?? 0
+            wasRetweeted = false
+            timestampString = dictionary["created_at"] as? String
+            
+        }
+        
+        retweetedByCurrentUser = dictionary["retweeted"] as? Bool
+        favoritedByCurrentUser = dictionary["favorited"] as? Bool
         
         if let timestampString = timestampString {
             let formatter = NSDateFormatter()
@@ -37,6 +55,12 @@ class Tweet: NSObject {
             formatter.dateFormat = "EEE MMM d HH:mm:ss Z y"
             let times = formatter.dateFromString(timestampString as String)?.timeIntervalSinceNow
             timestamp = Tweet.gettingTimestamp(times!)
+        }
+        
+        if let mediaContent = dictionary["extended_entities"] as? NSDictionary {
+            if mediaContent["media"]![0]["type"] as! String == "photo" {
+                imageUrl = NSURL(string: (mediaContent["media"]![0]["media_url_https"] as! String))
+            }
         }
         
     }
