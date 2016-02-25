@@ -16,7 +16,7 @@ class TimelineCell: UITableViewCell {
     
     /* Labels */
     
-    @IBOutlet weak var tweetLabel: UILabel!
+    @IBOutlet weak var tweetTextView: UITextView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var userImageView: UIImageView!
     @IBOutlet weak var userHandleLabel: UILabel!
@@ -30,11 +30,24 @@ class TimelineCell: UITableViewCell {
     @IBOutlet weak var retweetButton: UIButton!
     @IBOutlet weak var favoriteButton: UIButton!
     
+    /* Conditional Outlets */
+    
+    @IBOutlet weak var retweetedLabel: UILabel!
+    @IBOutlet weak var mediaImageView: UIImageView!
+
+    /* Constraint Outlets */
+    
+    @IBOutlet weak var retweetedImageViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var retweetedImageToUserImage: NSLayoutConstraint!
+    @IBOutlet weak var mediaImageViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var tweetTextViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var mediaImageViewToReplyButton: NSLayoutConstraint!
+    
     /* Variables necessary for retweeting/favoriting */
     
     var tweetId : String?
-    var didRetweet: Bool = false
-    var didFavorite: Bool = false
+    var currentUserDidRetweet: Bool = false
+    var currentUserDidFavorite: Bool = false
     
     /*------------------------*
      *      Tweet Setter      *
@@ -43,7 +56,7 @@ class TimelineCell: UITableViewCell {
     var tweet: Tweet! {
         didSet {
             tweetId = String(tweet.tweetId)
-            tweetLabel.text = tweet.text as? String
+            tweetTextView.text = tweet.text as? String
             timestampLabel.text = tweet.timestamp
             nameLabel.text = String(tweet.user!.name!)
             userImageView.setImageWithURL(tweet.user!.profileUrl!)
@@ -55,7 +68,7 @@ class TimelineCell: UITableViewCell {
                 retweetCount.text = String(tweet.retweetCount)
             }
             
-            if tweet.retweeted == true {
+            if tweet.retweetedByCurrentUser == true {
                 retweetButton.setImage(UIImage(named: "retweet-action-on-green.png"), forState: UIControlState.Normal)
             }
             
@@ -65,13 +78,50 @@ class TimelineCell: UITableViewCell {
                 favoriteCount.text = String(tweet.favoriteCount)
             }
             
-            if tweet.favorited == true {
+            if tweet.favoritedByCurrentUser == true {
                 favoriteButton.setImage(UIImage(named: "like-action-on-red.png"), forState: UIControlState.Normal)
             }
             
-            didRetweet = tweet.retweeted!
-            didFavorite = tweet.favorited!
+            currentUserDidRetweet = tweet.retweetedByCurrentUser!
+            currentUserDidFavorite = tweet.favoritedByCurrentUser!
             
+            /* Conditional Elements (Edge cases) */
+            
+            if !tweet.wasRetweeted {
+                retweetedLabel.hidden = true
+                retweetedImageViewHeight.constant = 0
+                retweetedImageToUserImage.constant = 0
+                print(retweetedImageToUserImage.constant)
+                print(retweetedImageViewHeight.constant)
+                
+            } else {
+                retweetedLabel.hidden = false
+                retweetedImageViewHeight.constant = 15
+                retweetedImageToUserImage.constant = 6
+                
+                print(" In else \(retweetedImageToUserImage.constant)")
+                print(retweetedImageViewHeight.constant)
+                
+                if tweet.wasRetweetedBy! == User._currentUser?.name {
+                    retweetedLabel.text = "You retweeted"
+                    
+                } else {
+                    retweetedLabel.text = "\(tweet.wasRetweetedBy!) retweeted"
+                    
+                }
+            }
+            
+            if tweet.imageUrl != nil {
+                mediaImageView.setImageWithURL(tweet.imageUrl!)
+                let imageWidth = mediaImageView.frame.size.width
+                mediaImageViewHeight.constant = imageWidth * 9 / 16
+                mediaImageViewToReplyButton.constant = 10
+                
+            } else {
+                mediaImageViewHeight.constant = 0
+                mediaImageViewToReplyButton.constant = 0
+                
+            }
         }
     }
     
@@ -82,6 +132,15 @@ class TimelineCell: UITableViewCell {
         favoriteCount.text = ""
         userImageView.layer.cornerRadius = 4
         userImageView.clipsToBounds = true
+        
+        // Attempting to dynamically size text view w/tweet.text
+        /*tweetTextView.sizeToFit()
+        let fixedWidth = tweetTextView.frame.size.width
+        tweetTextView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.max))
+        let newSize = tweetTextView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.max))
+        var newFrame = tweetTextView.frame
+        newFrame.size = CGSize(width: max(newSize.width, fixedWidth), height: newSize.height)
+        tweetTextView.frame = newFrame;*/
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
@@ -103,19 +162,19 @@ class TimelineCell: UITableViewCell {
     /* Retweeting/Unretweeting */
     
     @IBAction func onRetweet(sender: AnyObject) {
-        if !didRetweet {
+        if !currentUserDidRetweet {
             TwitterClient.sharedInstance.retweet(tweetId!)
             
             retweetButton.setImage(UIImage(named: "retweet-action-on-pressed_green.png"), forState: UIControlState.Highlighted)
             retweetButton.setImage(UIImage(named: "retweet-action-on-green.png"), forState: UIControlState.Normal)
+            
             tweet.retweetCount += 1
             retweetCount.text = "\(tweet.retweetCount)"
-            didRetweet = true
-            
-            print(tweet.retweetCount)
+            currentUserDidRetweet = true
             
         } else {
             TwitterClient.sharedInstance.unretweet(tweetId!)
+            
             retweetButton.setImage(UIImage(named: "retweet-action_default.png"), forState: UIControlState.Normal)
             tweet.retweetCount -= 1
             
@@ -124,22 +183,24 @@ class TimelineCell: UITableViewCell {
             } else {
                 retweetCount.text = "\(tweet.retweetCount)"
             }
-            didRetweet = false
+            currentUserDidRetweet = false
             
-            print(tweet.retweetCount)
         }
     }
     
     /* Favoriting/Unfavoriting */
 
     @IBAction func onFavorite(sender: AnyObject) {
-        if !didFavorite {
+        if !currentUserDidFavorite {
             TwitterClient.sharedInstance.favorite(tweetId!)
+            
             favoriteButton.setImage(UIImage(named: "like-action-on-pressed-red.png"), forState: UIControlState.Highlighted)
             favoriteButton.setImage(UIImage(named: "like-action-on-red.png"), forState: UIControlState.Normal)
+            
             tweet.favoriteCount += 1
             favoriteCount.text = "\(tweet.favoriteCount)"
-            didFavorite = true
+            currentUserDidFavorite = true
+            
         } else {
             TwitterClient.sharedInstance.unfavorite(tweetId!)
             favoriteButton.setImage(UIImage(named: "like-action-off.png"), forState: UIControlState.Normal)
@@ -147,10 +208,13 @@ class TimelineCell: UITableViewCell {
             
             if tweet.favoriteCount == 0 {
                 favoriteCount.text = ""
+                
             } else {
                 favoriteCount.text = "\(tweet.favoriteCount)"
+                
             }
-            didFavorite = false
+            currentUserDidFavorite = false
+            
         }
     }
 

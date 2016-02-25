@@ -34,6 +34,10 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         tableView.dataSource = self
         tableView.delegate = self
         
+        /* For dynamically sized cells */
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 120
+        
         TwitterClient.sharedInstance.homeTimeline(nil, success: { (tweets: [Tweet]) -> () in
             self.tweets = tweets
             self.tableView.reloadData()
@@ -64,6 +68,10 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         // Dispose of any resources that can be recreated.
     }
     
+    /*------------------------*
+     *  Table View Functions  *
+     *------------------------*/
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         if let tweets = self.tweets {
             return tweets.count
@@ -89,6 +97,12 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
+    
+    /*--------------------*
+     *   Button Actions   *
+     *--------------------*/
+    
+    /* Logout Button */
     
     @IBAction func onLogoutButton(sender: AnyObject) {
         TwitterClient.sharedInstance.logout()
