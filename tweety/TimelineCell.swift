@@ -16,7 +16,8 @@ class TimelineCell: UITableViewCell {
     
     /* Labels */
     
-    @IBOutlet weak var tweetTextView: UITextView!
+    
+    @IBOutlet weak var tweetLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var userImageView: UIImageView!
     @IBOutlet weak var userHandleLabel: UILabel!
@@ -40,7 +41,6 @@ class TimelineCell: UITableViewCell {
     @IBOutlet weak var retweetedImageViewHeight: NSLayoutConstraint!
     @IBOutlet weak var retweetedImageToUserImage: NSLayoutConstraint!
     @IBOutlet weak var mediaImageViewHeight: NSLayoutConstraint!
-    @IBOutlet weak var tweetTextViewHeight: NSLayoutConstraint!
     @IBOutlet weak var mediaImageViewToReplyButton: NSLayoutConstraint!
     
     /* Variables necessary for retweeting/favoriting */
@@ -56,7 +56,7 @@ class TimelineCell: UITableViewCell {
     var tweet: Tweet! {
         didSet {
             tweetId = String(tweet.tweetId)
-            tweetTextView.text = tweet.text as? String
+            tweetLabel.text = tweet.text as? String
             timestampLabel.text = tweet.timestamp
             nameLabel.text = String(tweet.user!.name!)
             userImageView.setImageWithURL(tweet.user!.profileUrl!)
@@ -85,6 +85,10 @@ class TimelineCell: UITableViewCell {
             currentUserDidRetweet = tweet.retweetedByCurrentUser!
             currentUserDidFavorite = tweet.favoritedByCurrentUser!
             
+            if tweet.user?.screenname == User._currentUser?.screenname {
+                retweetButton.enabled = false
+            }
+            
             /* Conditional Elements (Edge cases) */
             
             if !tweet.wasRetweeted {
@@ -111,11 +115,13 @@ class TimelineCell: UITableViewCell {
                 }
             }
             
+            mediaImageView.image = nil
+            
             if tweet.imageUrl != nil {
                 mediaImageView.setImageWithURL(tweet.imageUrl!)
                 let imageWidth = mediaImageView.frame.size.width
                 mediaImageViewHeight.constant = imageWidth * 9 / 16
-                mediaImageViewToReplyButton.constant = 10
+                mediaImageViewToReplyButton.constant = 8
                 
             } else {
                 mediaImageViewHeight.constant = 0
@@ -133,14 +139,6 @@ class TimelineCell: UITableViewCell {
         userImageView.layer.cornerRadius = 4
         userImageView.clipsToBounds = true
         
-        // Attempting to dynamically size text view w/tweet.text
-        /*tweetTextView.sizeToFit()
-        let fixedWidth = tweetTextView.frame.size.width
-        tweetTextView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.max))
-        let newSize = tweetTextView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.max))
-        var newFrame = tweetTextView.frame
-        newFrame.size = CGSize(width: max(newSize.width, fixedWidth), height: newSize.height)
-        tweetTextView.frame = newFrame;*/
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
@@ -152,7 +150,7 @@ class TimelineCell: UITableViewCell {
     /*-------------------------*
      *      Button Actions     *
      *-------------------------*/
-
+    
     /* Replying to a tweet */
     
     @IBAction func onReply(sender: AnyObject) {
