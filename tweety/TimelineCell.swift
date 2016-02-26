@@ -85,6 +85,7 @@ class TimelineCell: UITableViewCell {
             currentUserDidRetweet = tweet.retweetedByCurrentUser!
             currentUserDidFavorite = tweet.favoritedByCurrentUser!
             
+            retweetButton.enabled = true
             if tweet.user?.screenname == User._currentUser?.screenname {
                 retweetButton.enabled = false
             }
@@ -119,8 +120,7 @@ class TimelineCell: UITableViewCell {
             
             if tweet.imageUrl != nil {
                 mediaImageView.setImageWithURL(tweet.imageUrl!)
-                let imageWidth = mediaImageView.frame.size.width
-                mediaImageViewHeight.constant = imageWidth * 9 / 16
+                mediaImageViewHeight.constant = 142
                 mediaImageViewToReplyButton.constant = 8
                 
             } else {
