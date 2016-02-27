@@ -92,12 +92,10 @@ class TimelineCell: UITableViewCell {
             
             /* Conditional Elements (Edge cases) */
             
-           /* if !tweet.wasRetweeted {
+            if !tweet.wasRetweeted {
                 retweetedLabel.hidden = true
                 retweetedImageViewHeight.constant = 0
                 retweetedImageToUserImage.constant = 0
-                print(retweetedImageToUserImage.constant)
-                print(retweetedImageViewHeight.constant)
                 
             } else {
                 retweetedLabel.hidden = false
@@ -125,9 +123,10 @@ class TimelineCell: UITableViewCell {
                 
             } else {
                 mediaImageViewHeight.constant = 0
+            
                 mediaImageViewToReplyButton.constant = 0
                 
-            }*/
+            }
         }
     }
     
