@@ -85,14 +85,14 @@ class TimelineCell: UITableViewCell {
             currentUserDidRetweet = tweet.retweetedByCurrentUser!
             currentUserDidFavorite = tweet.favoritedByCurrentUser!
             
-            retweetButton.enabled = true
+           /* retweetButton.enabled = true
             if tweet.user?.screenname == User._currentUser?.screenname {
                 retweetButton.enabled = false
-            }
+            }*/
             
             /* Conditional Elements (Edge cases) */
             
-            if !tweet.wasRetweeted {
+           /* if !tweet.wasRetweeted {
                 retweetedLabel.hidden = true
                 retweetedImageViewHeight.constant = 0
                 retweetedImageToUserImage.constant = 0
@@ -127,7 +127,7 @@ class TimelineCell: UITableViewCell {
                 mediaImageViewHeight.constant = 0
                 mediaImageViewToReplyButton.constant = 0
                 
-            }
+            }*/
         }
     }
     

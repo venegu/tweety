@@ -12,7 +12,7 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     
     @IBOutlet weak var tableView: UITableView!
     
-    var tweets: [Tweet]!
+    var tweets = [Tweet]()
     
     // Declaring variables pertaining to infinite scrolling
     var isMoreDataLoading = false
@@ -68,39 +68,26 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         // Dispose of any resources that can be recreated.
     }
     
-    /*------------------------*
-     *  Table View Functions  *
-     *------------------------*/
+    // MARK: - Table View Functions
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
-        if let tweets = self.tweets {
-            return tweets.count
-        } else {
-            return 0
-        }
-        
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return tweets.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("TimelineCell", forIndexPath: indexPath) as! TimelineCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("TimelineCell") as! TimelineCell
         
-        if tweets != nil {
-            cell.tweet = tweets![indexPath.row]
-        }
-        
-        tweetIdLast = tweets![indexPath.row].tweetId
+        cell.tweet = tweets[indexPath.row]
+        tweetIdLast = tweets[indexPath.row].tweetId
         
         return cell
     }
     
-    // Deselecting selected table view item
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
     
-    /*--------------------*
-     *   Button Actions   *
-     *--------------------*/
+   // MARK: - Button Actions
     
     /* Logout Button */
     
@@ -159,17 +146,26 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
                 print(error.localizedDescription)
         })
     }
-    
-    /*
+   
     // MARK: - Navigation
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     // Get the new view controller using segue.destinationViewController.
     // Pass the selected object to the new view controller.
+        
+        if segue.identifier == "toTweetDetailView" {
+            let tweetDetailViewController: TweetDetailViewController = segue.destinationViewController as! TweetDetailViewController
+            let cell = sender as! TimelineCell
+            let indexPath = tableView.indexPathForCell(cell)
+            let tweet = tweets[(indexPath?.row)!]
+            //print("Cell Segue: \(cell)")
+            tweetDetailViewController.tweet = tweet
+            
+        }
     }
-    */
-    
 }
+
+// MARK: - Infinite Scroll Class
 
 class InfiniteScrollActivityView: UIView {
     var activityIndicatorView: UIActivityIndicatorView = UIActivityIndicatorView()

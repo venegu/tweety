@@ -19,7 +19,8 @@
 		281FBA461C7780DE0084523F /* tweetyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281FBA451C7780DE0084523F /* tweetyTests.swift */; };
 		281FBA511C7780DE0084523F /* tweetyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281FBA501C7780DE0084523F /* tweetyUITests.swift */; };
 		286A40641C7A99A200802BA5 /* TwitterClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286A40631C7A99A200802BA5 /* TwitterClient.swift */; };
-		28A3168D1C779C5C00E84228 /* key.plist in Resources */ = {isa = PBXBuildFile; fileRef = 28A3168C1C779C5C00E84228 /* key.plist */; };
+		288ED9EC1C80F34700D9BEEF /* key.plist in Resources */ = {isa = PBXBuildFile; fileRef = 288ED9EB1C80F34700D9BEEF /* key.plist */; };
+		288ED9F01C80F72100D9BEEF /* TweetDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288ED9EF1C80F72100D9BEEF /* TweetDetailViewController.swift */; };
 		7232772AE665C4B6B28FCD43 /* Pods_tweety.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42220A6070AA0CC268BEF65A /* Pods_tweety.framework */; };
 		7F91220729735657DFA9A327 /* Pods_tweetyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D06635DD4FA02BF8B124491 /* Pods_tweetyTests.framework */; };
 /* End PBXBuildFile section */
@@ -60,7 +61,8 @@
 		281FBA501C7780DE0084523F /* tweetyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tweetyUITests.swift; sourceTree = "<group>"; };
 		281FBA521C7780DE0084523F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		286A40631C7A99A200802BA5 /* TwitterClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwitterClient.swift; sourceTree = "<group>"; };
-		28A3168C1C779C5C00E84228 /* key.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = key.plist; sourceTree = "<group>"; };
+		288ED9EB1C80F34700D9BEEF /* key.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = key.plist; sourceTree = "<group>"; };
+		288ED9EF1C80F72100D9BEEF /* TweetDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetDetailViewController.swift; sourceTree = "<group>"; };
 		42220A6070AA0CC268BEF65A /* Pods_tweety.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_tweety.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5289A6FC2AC0818FABD3AF0E /* Pods-tweety.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tweety.debug.xcconfig"; path = "Pods/Target Support Files/Pods-tweety/Pods-tweety.debug.xcconfig"; sourceTree = "<group>"; };
 		6F2227809E4716D0C16A7BEA /* Pods-tweety.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tweety.release.xcconfig"; path = "Pods/Target Support Files/Pods-tweety/Pods-tweety.release.xcconfig"; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 			children = (
 				28194ADD1C7782D500F0B6BE /* LoginViewController.swift */,
 				2818E00F1C7AADD700592310 /* TweetsViewController.swift */,
+				288ED9EF1C80F72100D9BEEF /* TweetDetailViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -173,7 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				281FBA3C1C7780DE0084523F /* Info.plist */,
-				28A3168C1C779C5C00E84228 /* key.plist */,
+				288ED9EB1C80F34700D9BEEF /* key.plist */,
 			);
 			name = "Support Files";
 			sourceTree = "<group>";
@@ -326,7 +329,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				28A3168D1C779C5C00E84228 /* key.plist in Resources */,
+				288ED9EC1C80F34700D9BEEF /* key.plist in Resources */,
 				281FBA3B1C7780DE0084523F /* LaunchScreen.storyboard in Resources */,
 				281FBA381C7780DE0084523F /* Assets.xcassets in Resources */,
 				281FBA361C7780DE0084523F /* Main.storyboard in Resources */,
@@ -452,6 +455,7 @@
 				2818E00E1C7AA17700592310 /* Tweet.swift in Sources */,
 				2818E0101C7AADD700592310 /* TweetsViewController.swift in Sources */,
 				28194ADE1C7782D500F0B6BE /* LoginViewController.swift in Sources */,
+				288ED9F01C80F72100D9BEEF /* TweetDetailViewController.swift in Sources */,
 				281FBA311C7780DE0084523F /* AppDelegate.swift in Sources */,
 				2818E00C1C7AA10D00592310 /* User.swift in Sources */,
 			);
@@ -605,6 +609,7 @@
 		};
 		281FBA571C7780DE0084523F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6F2227809E4716D0C16A7BEA /* Pods-tweety.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = tweety/Info.plist;
