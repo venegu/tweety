@@ -117,6 +117,10 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         }
     }
     
+    @IBAction func onImageClick(sender: AnyObject) {
+        let url = sender.image
+        print(url)
+    }
     func loadData() {
         TwitterClient.sharedInstance.homeTimeline(apiParameters, success: { (tweets: [Tweet]) -> () in
             self.loadingMoreView!.stopAnimating()
@@ -158,10 +162,17 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
             let cell = sender as! TimelineCell
             let indexPath = tableView.indexPathForCell(cell)
             let tweet = tweets[(indexPath?.row)!]
-            //print("Cell Segue: \(cell)")
             tweetDetailViewController.tweet = tweet
-            
         }
+        
+        /*if (segue.identifier == "toCreateTweet") {
+            let navVC = segue.destinationViewController as! UINavigationController
+            let vc = navVC.topViewController as! ComposeTweetViewController
+            let cell = sender as! TimelineCell
+            let indexPath = tableView.indexPathForCell(cell)
+            let tweet = tweets[(indexPath?.row)!]
+            vc.replyTo = tweet
+        }*/
     }
 }
 

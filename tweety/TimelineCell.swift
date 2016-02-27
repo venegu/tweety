@@ -122,7 +122,7 @@ class TimelineCell: UITableViewCell {
                 mediaImageViewToReplyButton.constant = 8
                 
             } else {
-                mediaImageViewHeight.constant = -10
+                mediaImageViewHeight.constant = 0
             
                 mediaImageViewToReplyButton.constant = 0
                 
