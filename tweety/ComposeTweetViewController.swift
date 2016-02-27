@@ -13,8 +13,6 @@ class ComposeTweetViewController: UIViewController {
     
     @IBOutlet weak var countLabel: UILabel!
     @IBOutlet weak var tweetTextField: UITextField!
-    @IBOutlet weak var inReplyLabel: UILabel!
-    
     var apiParameters: NSDictionary!
     
     override func viewDidLoad() {
