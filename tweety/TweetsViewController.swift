@@ -29,12 +29,11 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //print(apiParameters)
         
         tableView.dataSource = self
         tableView.delegate = self
         
-        /* For dynamically sized cells */
+        /* For dynamically sized cells - Auto layout */
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 120
         
