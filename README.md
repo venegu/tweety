@@ -39,6 +39,8 @@ Here's a walkthrough of implemented user stories:
 
 <img src='https://github.com/venegu/tweety/raw/master/tweety.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
+I had a WiFi problem at the end... Didn't really want to redo this walkthrough again though :panda_face:
+
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Installation
