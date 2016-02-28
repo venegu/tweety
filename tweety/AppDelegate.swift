@@ -94,7 +94,7 @@ extension UINavigationBar {
         set {
             self.layer.shadowOffset = CGSizeMake(0, 2)
             self.layer.shadowRadius = 1.0
-            self.layer.shadowColor = UIColor.grayColor().CGColor
+            self.layer.shadowColor = UIColor.lightGrayColor().CGColor
             self.layer.shadowOpacity = 0.7
         }
     }
