@@ -86,10 +86,26 @@ class TimelineCell: UITableViewCell {
             currentUserDidRetweet = tweet.retweetedByCurrentUser!
             currentUserDidFavorite = tweet.favoritedByCurrentUser!
             
+            retweetButton.setImage(UIImage(named: "retweet-action-inactive.png"), forState: UIControlState.Normal)
+            
             retweetButton.enabled = true
             if tweet.user?.screenname == User._currentUser?.screenname {
                 retweetButton.enabled = false
+            } else {
+                retweetButton.setImage(UIImage(named: "retweet-action_default.png"), forState: UIControlState.Normal)
             }
+            
+            if currentUserDidRetweet {
+                retweetButton.setImage(UIImage(named: "retweet-action-on-green.png"), forState: UIControlState.Normal)
+            }
+            
+            favoriteButton.setImage(UIImage(named: "like-action-off.png"), forState: UIControlState.Normal)
+            
+            if currentUserDidFavorite {
+                favoriteButton.setImage(UIImage(named: "like-action-on-red.png"), forState: UIControlState.Normal)
+            }
+            
+            
             
             /* Conditional Elements (Edge cases) */
             

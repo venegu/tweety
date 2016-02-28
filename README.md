@@ -12,17 +12,19 @@ The following **required** functionality is completed:
 - [x] User can view last 20 tweets from their home timeline
 - [x] The current signed in user will be persisted across restarts
 - [x] In the home timeline, user can view tweet with the user profile picture, username, tweet text, and timestamp.
-- [ ] Retweeting and favoriting should increment the retweet and favorite count.
+- [x] Retweeting and favoriting should increment the retweet and favorite count.
 
 The following **optional** features are implemented:
 
 - [x] User can load more tweets once they reach the bottom of the feed using infinite loading similar to the actual Twitter client.
-- [ ] User should be able to unretweet and unfavorite and should decrement the retweet and favorite count.
+- [x] User should be able to unretweet and unfavorite and should decrement the retweet and favorite count.
 - [x] User can pull to refresh.
 
 The following **additional** features are implemented:
 
 - [x] Obfuscating twitter api keys using another plist file. To run this app see [instructions](https://github.com/venegu/tweety#installation) below.
+- [x] Adding gradient in the log in page using layers
+- [x] Adding drop shadow across all instances of navigation bars in the code base by adding an extension the the `UINavigationBar`
 
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 
@@ -34,13 +36,14 @@ Please list two areas of the assignment you'd like to **discuss further with you
 
 Here's a walkthrough of implemented user stories:
 
-<!--<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />-->
+
+<img src='https://github.com/venegu/tweety/raw/master/tweety.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Installation
 
-To run this app you will need to provide your own [Twitter key and secret](https://apps.twitter.com) and create you own `key.plist` file.
+To run this app you will need to provide your own [Twitter key and secret](https://apps.twitter.com) and create a with these values `key.plist` file.
 
 In the `key.plist` file you will need to add your consumer key and consumer secret as the following keys respectively: `consumerKey` and `consumerSecret`. Please make sure that the type of each entry is a *String*. See the below example.
 
@@ -80,16 +83,16 @@ Time spent: **X** hours spent in total
 
 The following **required** functionality is completed:
 
-- [ ] Tweet Details Page: User can tap on a tweet to view it, with controls to retweet, favorite, and reply.
+- [x] Tweet Details Page: User can tap on a tweet to view it, with controls to retweet, favorite, and reply.
 - [ ] Profile page:
    - [ ] Contains the user header view
    - [ ] Contains a section with the users basic stats: # tweets, # following, # followers
 - [ ] Home Timeline: Tapping on a user image should bring up that user's profile page
-- [ ] Compose Page: User can compose a new tweet by tapping on a compose button.
+- [x] Compose Page: User can compose a new tweet by tapping on a compose button.
 
 The following **optional** features are implemented:
 
-- [ ] When composing, you should have a countdown in the upper right for the tweet limit.
+- [x] When composing, you should have a countdown in the upper right for the tweet limit.
 - [ ] After creating a new tweet, a user should be able to view it in the timeline immediately without refetching the timeline from the network.
 - [ ] Profile Page
    - [ ] Implement the paging view for the user description.
