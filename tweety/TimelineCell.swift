@@ -56,6 +56,7 @@ class TimelineCell: UITableViewCell {
     var tweet: Tweet! {
         didSet {
             tweetId = String(tweet.tweetId)
+            print("Cell: \(tweetId)")
             tweetLabel.text = tweet.text as? String
             timestampLabel.text = tweet.timestamp
             nameLabel.text = String(tweet.user!.name!)
@@ -149,12 +150,6 @@ class TimelineCell: UITableViewCell {
     /*-------------------------*
      *      Button Actions     *
      *-------------------------*/
-    
-    /* Replying to a tweet */
-    
-    @IBAction func onReply(sender: AnyObject) {
-    }
-    
     
     /* Retweeting/Unretweeting */
     

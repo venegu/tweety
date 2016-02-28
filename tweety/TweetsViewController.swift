@@ -79,6 +79,7 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         
         cell.tweet = tweets[indexPath.row]
         tweetIdLast = tweets[indexPath.row].tweetId
+        print("ID inside tb: \(tweetIdLast)")
         
         return cell
     }
@@ -165,14 +166,17 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
             tweetDetailViewController.tweet = tweet
         }
         
-        /*if (segue.identifier == "toCreateTweet") {
-            let navVC = segue.destinationViewController as! UINavigationController
-            let vc = navVC.topViewController as! ComposeTweetViewController
-            let cell = sender as! TimelineCell
-            let indexPath = tableView.indexPathForCell(cell)
-            let tweet = tweets[(indexPath?.row)!]
-            vc.replyTo = tweet
-        }*/
+        if (segue.identifier == "toReplyToTweet") {
+            let button = sender as! UIButton
+            let buttonFrame = button.convertRect(button.bounds, toView: self.tableView)
+            if let indexPath = self.tableView.indexPathForRowAtPoint(buttonFrame.origin) {
+                let nav = segue.destinationViewController as! UINavigationController
+                let replyTweetViewController = nav.topViewController as! ReplyTweetViewController
+                let tweet = tweets[(indexPath.row)]
+                print("Segue: \(tweet.tweetId)")
+                replyTweetViewController.replyTo = tweet
+            }
+        }
     }
 }
 

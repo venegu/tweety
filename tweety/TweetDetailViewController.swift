@@ -53,7 +53,8 @@ class TweetDetailViewController: UIViewController, UITableViewDelegate, UITableV
         if (segue.identifier == "toReplyToTweet") {
             let nav = segue.destinationViewController as! UINavigationController
             let replyTweetViewController = nav.topViewController as! ReplyTweetViewController
-             replyTweetViewController.replyTo = self.tweet        }
+             replyTweetViewController.replyTo = self.tweet
+        }
     }
     
 

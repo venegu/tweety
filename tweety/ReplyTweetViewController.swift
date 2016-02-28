@@ -10,19 +10,21 @@ import UIKit
 
 class ReplyTweetViewController: UIViewController {
     
+    // MARK: - Outlets
+    
     @IBOutlet weak var countLabel: UILabel!
     @IBOutlet weak var tweetTextField: UITextField!
     @IBOutlet weak var inReplyLabel: UILabel!
     
     var replyTo: Tweet?
-    var apiParameters: NSDictionary!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tweetTextField.becomeFirstResponder()
         inReplyLabel.text = "In reply to \(replyTo!.user!.name!)"
         tweetTextField.text = "@\(replyTo!.user!.screenname!) "
-        
+        print("Reply: \(replyTo?.tweetId)")
+        countLabel.text = "\(140 - tweetTextField.text!.characters.count)"
         
         // Do any additional setup after loading the view.
     }
@@ -32,7 +34,7 @@ class ReplyTweetViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    // MARK: - Button Actions
+    // MARK: - Bar Button Actions
     
     @IBAction func onCloseButton(sender: AnyObject) {
         dismissViewControllerAnimated(true, completion: nil)
@@ -58,7 +60,6 @@ class ReplyTweetViewController: UIViewController {
         checkMaxLength(sender as! UITextField, maxLength: 140)
         countLabel.text = "\(140-tweetTextField.text!.characters.count)"
     }
-    
     
     
     /*

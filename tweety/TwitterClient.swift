@@ -133,15 +133,16 @@ class TwitterClient: BDBOAuth1SessionManager {
     func unfavorite(tweetId: String) {
         POST("/1.1/favorites/destroy.json?id=\(tweetId)", parameters: nil, progress: nil, success: { (task: NSURLSessionDataTask, response: AnyObject?) -> Void in
             print("Unfavoriting a tweet")
-            }) { (task: NSURLSessionDataTask?, error: NSError) -> Void in
+        }) { (task: NSURLSessionDataTask?, error: NSError) -> Void in
                 print(error.localizedDescription)
         }
     }
     
-    func replyToTweet(apiParameters: NSDictionary?) {
+    func replyToTweet(apiParameters: NSDictionary) {
         POST("1.1/statuses/update.json", parameters: apiParameters, progress: nil, success:  { (task: NSURLSessionDataTask, response: AnyObject?) -> Void in
             print("Replying to a tweet")
-            }) { (task: NSURLSessionDataTask?, error: NSError) -> Void in
+            print(apiParameters)
+        }) { (task: NSURLSessionDataTask?, error: NSError) -> Void in
                 print(error.localizedDescription)
         }
     }
