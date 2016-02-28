@@ -18,9 +18,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qK4-j4-F6K">
-                                <rect key="frame" x="34" y="393" width="252" height="66"/>
-                                <color key="backgroundColor" red="0.46227585433859797" green="0.85087788553264732" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qK4-j4-F6K">
+                                <rect key="frame" x="60" y="454" width="198.5" height="60"/>
+                                <color key="backgroundColor" red="0.33725490196078434" green="0.67450980392156867" blue="0.90980392156862744" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="198.5" id="7rp-wQ-OVa"/>
+                                    <constraint firstAttribute="height" constant="60" id="HBq-uG-rdU"/>
+                                </constraints>
                                 <state key="normal" title="Login to Twitter">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -28,8 +32,34 @@
                                     <action selector="onLoginButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KXX-6y-t98"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vMa-A8-Wn8">
+                                <rect key="frame" x="16" y="20" width="80" height="41"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="30"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to Tweety." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cBd-6v-QoY">
+                                <rect key="frame" x="51" y="69" width="219" height="33"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="24"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="A toy iOS Twitter clone using the Twitter API " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dwB-MB-eFS">
+                                <rect key="frame" x="37" y="104" width="247" height="69"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="cBd-6v-QoY" firstAttribute="top" secondItem="vMa-A8-Wn8" secondAttribute="bottom" constant="8" id="0n3-td-hid"/>
+                            <constraint firstItem="vMa-A8-Wn8" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="7Ys-d5-IF4"/>
+                            <constraint firstItem="vMa-A8-Wn8" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="F2c-vE-z65"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="qK4-j4-F6K" secondAttribute="bottom" constant="54" id="lJk-ox-T4a"/>
+                            <constraint firstItem="qK4-j4-F6K" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="spc-FM-0tQ"/>
+                            <constraint firstItem="cBd-6v-QoY" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="vG7-B3-6Vs"/>
+                        </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
@@ -150,7 +180,6 @@
                                                     </constraints>
                                                     <state key="normal" title="Button" image="retweet-action_default"/>
                                                     <connections>
-                                                        <action selector="onReply:" destination="DUt-2M-6yl" eventType="touchUpInside" id="XqO-Yt-Nao"/>
                                                         <action selector="onRetweet:" destination="DUt-2M-6yl" eventType="touchUpInside" id="sUI-ty-VeV"/>
                                                     </connections>
                                                 </button>
@@ -606,22 +635,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" placeholder="What's happening?" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pti-8K-Th9" userLabel="Tweet Field">
-                                <rect key="frame" x="20" y="96" width="280" height="472"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="onEditingTextField:" destination="PwA-bl-K9i" eventType="editingChanged" id="QXH-y2-6LW"/>
-                                    <action selector="onEditingTextField:" destination="4zv-zM-APb" eventType="editingDidEnd" id="e27-SN-iM8"/>
-                                </connections>
-                            </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="140" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oah-nm-9W8">
                                 <rect key="frame" x="273" y="72" width="27" height="21"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" placeholder="What's happening?" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xQo-Jx-bTD" userLabel="Tweet Field">
+                                <rect key="frame" x="20" y="96" width="280" height="472"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="onEditingText:" destination="4zv-zM-APb" eventType="editingChanged" id="tGC-FV-dsK"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -640,7 +668,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="countLabel" destination="Oah-nm-9W8" id="3c4-Iz-y0i"/>
-                        <outlet property="tweetTextField" destination="pti-8K-Th9" id="XPA-yq-UOr"/>
+                        <outlet property="tweetTextField" destination="xQo-Jx-bTD" id="hnl-BB-pUu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KGQ-HO-emM" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -692,6 +720,6 @@
         <image name="retweet-action_default" width="25" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="nSS-ak-lGl"/>
+        <segue reference="I08-8l-rQQ"/>
     </inferredMetricsTieBreakers>
 </document>

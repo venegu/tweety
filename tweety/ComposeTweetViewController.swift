@@ -17,6 +17,7 @@ class ComposeTweetViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tweetTextField.becomeFirstResponder()
+        countLabel.text = "\(140 - tweetTextField.text!.characters.count)"
 
         // Do any additional setup after loading the view.
     }
@@ -47,11 +48,12 @@ class ComposeTweetViewController: UIViewController {
         }
     }
     
-    @IBAction func onEditingTextField(sender: AnyObject) {
+    @IBAction func onEditingText(sender: AnyObject) {
         checkMaxLength(sender as! UITextField, maxLength: 140)
-        countLabel.text = "\(140-tweetTextField.text!.characters.count)"
+        countLabel.text = "\(140 - tweetTextField.text!.characters.count)"
+        print(tweetTextField.text!.characters.count)
     }
-   
+    
 
 
     /*
