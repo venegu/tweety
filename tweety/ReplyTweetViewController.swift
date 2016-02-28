@@ -58,7 +58,7 @@ class ReplyTweetViewController: UIViewController {
     
     @IBAction func onEditingTextField(sender: AnyObject) {
         checkMaxLength(sender as! UITextField, maxLength: 140)
-        countLabel.text = "\(140-tweetTextField.text!.characters.count)"
+        countLabel.text = "\(140 - tweetTextField.text!.characters.count)"
     }
     
     
