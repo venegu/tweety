@@ -23,8 +23,9 @@ The following **optional** features are implemented:
 The following **additional** features are implemented:
 
 - [x] Obfuscating twitter api keys using another plist file. To run this app see [instructions](https://github.com/venegu/tweety#installation) below.
-- [x] Adding gradient in the log in page using layers
-- [x] Adding drop shadow across all instances of navigation bars in the code base by adding an extension the the `UINavigationBar`
+- [x] Adding gradient in the log in page using layers.
+- [x] Adding drop shadow across all instances of navigation bars in the code base by adding an extension the the `UINavigationBar`.
+- [x] Showing network errors with an animated view (I learned this from another student :D) and allowing the user to retry the network ... currently only supports timeline... will soon support other network requests.
 
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 
@@ -39,7 +40,9 @@ Here's a walkthrough of implemented user stories:
 
 <img src='https://github.com/venegu/tweety/raw/master/tweety.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
-I had a WiFi problem at the end... Didn't really want to redo this walkthrough again though :panda_face:
+<img src='https://github.com/venegu/tweety/raw/master/tweety2.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+
+I had a WiFi problem at the end... Didn't really want to redo this walkthrough again though :panda_face:. __NOTE__: Second GIF shows added in support for displaying network errors... haha @_@.
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 

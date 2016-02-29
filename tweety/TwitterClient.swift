@@ -19,7 +19,7 @@ class TwitterClient: BDBOAuth1SessionManager {
     var loginFailure: ((NSError) -> ())?
     
     /**
-     * Getting request token to open up authorize link in mobile safari 
+     * Getting request token to open up authorize link in mobile safari
      */
     
     func login(success: () -> (), failure: (NSError) -> ()) {

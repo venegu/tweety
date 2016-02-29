@@ -11,6 +11,8 @@ import UIKit
 class TweetsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var networkAlert: UIView!
+    
     
     var tweets = [Tweet]()
     
@@ -29,7 +31,7 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        networkAlert.hidden = true
         tableView.dataSource = self
         tableView.delegate = self
         
@@ -37,12 +39,7 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 120
         
-        TwitterClient.sharedInstance.homeTimeline(nil, success: { (tweets: [Tweet]) -> () in
-            self.tweets = tweets
-            self.tableView.reloadData()
-        }, failure: { (error: NSError) -> () in
-                print(error.localizedDescription)
-        })
+        networkCall()
         
         // Adding loading view as an inset to the table view for infinite scrolling
         let frame = CGRectMake(0, tableView.contentSize.height, tableView.bounds.size.width, InfiniteScrollActivityView.defaultHeight)
@@ -58,6 +55,11 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: "refreshControlAction:", forControlEvents: UIControlEvents.ValueChanged)
         tableView.insertSubview(refreshControl, atIndex: 0)
+        
+        // Defining tap gesture for network alert view
+        let networkTap = UITapGestureRecognizer()
+        networkTap.addTarget(self, action: "handleTap")
+        self.networkAlert.addGestureRecognizer(networkTap)
         
         // Do any additional setup after loading the view.
     }
@@ -78,7 +80,6 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         
         cell.tweet = tweets[indexPath.row]
         tweetIdLast = tweets[indexPath.row].tweetId
-        print("ID inside tb: \(tweetIdLast)")
         
         return cell
     }
@@ -94,6 +95,11 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     @IBAction func onLogoutButton(sender: AnyObject) {
         TwitterClient.sharedInstance.logout()
     }
+    
+    func handleTap () {
+        networkCall()
+    }
+    
     
     // Checking if the user scrolled, making the request/view and starting the load indicator
     func scrollViewDidScroll(scrollView: UIScrollView) {
@@ -121,6 +127,9 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         let url = sender.image
         print(url)
     }
+    
+    // MARK: - Network Calls
+    
     func loadData() {
         TwitterClient.sharedInstance.homeTimeline(apiParameters, success: { (tweets: [Tweet]) -> () in
             self.loadingMoreView!.stopAnimating()
@@ -130,25 +139,64 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
                     self.tweets.append(tweet)
                 }
             }
+            self.hideNetworkAlert()
             
             self.tableView.reloadData()
             self.offset = self.offset! + 20
             self.isMoreDataLoading = false
         }, failure: {(error: NSError) -> () in
                 print(error.localizedDescription)
+                self.showNetworkAlert()
+        })
+       
+    }
+    
+    func networkCall() {
+        TwitterClient.sharedInstance.homeTimeline(nil, success: { (tweets: [Tweet]) -> () in
+            self.tweets = tweets
+            self.tableView.reloadData()
+            self.hideNetworkAlert()
+
+            }, failure: { (error: NSError) -> () in
+                print(error.localizedDescription)
+                self.showNetworkAlert()
         })
         
     }
     
-    func refreshControlAction(refreshControl: UIRefreshControl) {
+    // MARK: - Network Error Functions
+    
+    // Delay to hide network error
+    func runAfterDelay(delay: NSTimeInterval, block: dispatch_block_t) {
+        let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay * Double(NSEC_PER_SEC)))
+        dispatch_after(time, dispatch_get_main_queue(), block)
+    }
+    
+    // Animating network error
+    func showNetworkAlert() {
+        self.networkAlert.alpha = 0.0
+        self.networkAlert.hidden = false
         
-        TwitterClient.sharedInstance.homeTimeline(nil, success: { (tweets: [Tweet]) -> () in
-            self.tweets = tweets
-            self.tableView.reloadData()
-            refreshControl.endRefreshing()
-        }, failure: { (error: NSError) -> () in
-                print(error.localizedDescription)
+        UIView.animateWithDuration(0.5, animations: {
+            self.networkAlert.alpha = 1.0
         })
+    }
+    
+    func hideNetworkAlert() {
+        if(self.networkAlert.hidden == false) {
+            UIView.animateWithDuration(0.5, animations: {
+                self.networkAlert.alpha = 0.0
+            })
+            
+            runAfterDelay(0.5, block: {
+                self.networkAlert.hidden = true
+            })
+        }
+    }
+    
+    func refreshControlAction(refreshControl: UIRefreshControl) {
+        networkCall()
+        refreshControl.endRefreshing()
     }
    
     // MARK: - Navigation
@@ -172,7 +220,6 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
                 let nav = segue.destinationViewController as! UINavigationController
                 let replyTweetViewController = nav.topViewController as! ReplyTweetViewController
                 let tweet = tweets[(indexPath.row)]
-                print("Segue: \(tweet.tweetId)")
                 replyTweetViewController.replyTo = tweet
             }
         }
