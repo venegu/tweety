@@ -60,6 +60,16 @@ Describe any challenges encountered while building the app.
 
 ## Resources
 
+## Credits
+
+Twitter Icons - Courtesy of the [Twitter Brand Assets](https://about.twitter.com/company/brand-assets) and a student at CCSF
+Compose Icon - [Gregor Črešnar](https://thenounproject.com/search/?q=compose&i=256159)
+Cancel Icon - [Shawn Wong](https://thenounproject.com/search/?q=x&i=114046)
+Network Alert Icon - [Ugur Akdemir](https://thenounproject.com/search/?q=wifi&i=26774)
+Magnifying Glass Icon - [Eugen Belyakoff](https://thenounproject.com/search/?q=magnifying+glass&i=38681)
+
+Many thanks!
+
 ### Hiding API Keys
    - http://stackoverflow.com/questions/30705214/call-app-delegate-method-from-view-controller
 

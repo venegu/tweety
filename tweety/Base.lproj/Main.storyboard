@@ -107,7 +107,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="Q0I-sa-YCH">
-                        <barButtonItem key="leftBarButtonItem" title="Close" id="sIm-Eh-aFP">
+                        <barButtonItem key="leftBarButtonItem" image="myx" id="sIm-Eh-aFP">
                             <connections>
                                 <action selector="onCloseButton:" destination="PwA-bl-K9i" id="sip-gC-KDB"/>
                             </connections>
@@ -345,7 +345,7 @@
                                 <action selector="onLogoutButton:" destination="w0S-5i-ql1" id="rww-4u-v67"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Compose" id="Z7p-yc-6Kj">
+                        <barButtonItem key="rightBarButtonItem" image="mycompose7" id="Z7p-yc-6Kj">
                             <connections>
                                 <segue destination="8FJ-rR-F7L" kind="presentation" id="jsi-Ua-qOf"/>
                             </connections>
@@ -676,7 +676,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="C1V-jD-2En">
-                        <barButtonItem key="leftBarButtonItem" title="Close" id="FuX-OZ-MtL">
+                        <barButtonItem key="leftBarButtonItem" image="myx" id="FuX-OZ-MtL">
                             <connections>
                                 <action selector="onCloseButton:" destination="4zv-zM-APb" id="Reu-k9-3oQ"/>
                             </connections>
@@ -738,6 +738,8 @@
     </scenes>
     <resources>
         <image name="like-action-off" width="18" height="24"/>
+        <image name="mycompose7" width="29" height="29"/>
+        <image name="myx" width="20" height="20"/>
         <image name="reply-action_0" width="21" height="24"/>
         <image name="retweet-action_default" width="25" height="24"/>
         <image name="wifiError" width="50" height="45"/>
