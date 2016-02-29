@@ -38,9 +38,7 @@ Please list two areas of the assignment you'd like to **discuss further with you
 Here's a walkthrough of implemented user stories:
 
 
-<img src='https://github.com/venegu/tweety/raw/master/tweety.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
-
-<img src='https://github.com/venegu/tweety/raw/master/tweety2.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://github.com/venegu/tweety/raw/master/tweety.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />              <img src='https://github.com/venegu/tweety/raw/master/tweety2.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 I had a WiFi problem at the end... Didn't really want to redo this walkthrough again though :panda_face:. __NOTE__: Second GIF shows added in support for displaying network errors... haha @_@.
 
@@ -132,7 +130,7 @@ Describe any challenges encountered while building the app.
 
 ## License
 
-    Copyright [yyyy] [name of copyright owner]
+    Copyright [2016] [Lisa Maldonado]
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
