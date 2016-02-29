@@ -26,6 +26,7 @@ The following **additional** features are implemented:
 - [x] Adding gradient in the log in page using layers.
 - [x] Adding drop shadow across all instances of navigation bars in the code base by adding an extension the the `UINavigationBar`.
 - [x] Showing network errors with an animated view (I learned this from another student :D) and allowing the user to retry the network ... currently only supports timeline... will soon support other network requests.
+- [x] Customized user interfaces with neat icons :).
 
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 
