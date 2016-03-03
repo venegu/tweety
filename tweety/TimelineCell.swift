@@ -66,7 +66,7 @@ class TimelineCell: UITableViewCell {
             tweetLabel.text = tweet.text as? String
             timestampLabel.text = tweet.timestamp
             nameLabel.text = String(tweet.user!.name!)
-            userImageView.setImageWithURL(tweet.user!.profileUrl!)
+            userImageView.setImageWithURL(tweet.user!.profileUrlHigh!)
             userHandleLabel.text = "@\(tweet.user!.screenname!)"
             
             if tweet.retweetCount == 0 {
