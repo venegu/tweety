@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1605" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1605" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -154,10 +154,14 @@
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lfm-1Z-AJP">
                                                     <rect key="frame" x="8" y="27" width="35" height="35"/>
+                                                    <gestureRecognizers/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="35" id="caG-i1-DDk"/>
                                                         <constraint firstAttribute="width" constant="35" id="fPq-qc-4dq"/>
                                                     </constraints>
+                                                    <connections>
+                                                        <outletCollection property="gestureRecognizers" destination="Dwt-sD-rKn" appends="YES" id="I6W-ie-4VJ"/>
+                                                    </connections>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Handle" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Co-No-cTV">
                                                     <rect key="frame" x="99" y="30" width="40" height="16.5"/>
@@ -358,6 +362,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P1E-Ui-icF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="Dwt-sD-rKn"/>
             </objects>
             <point key="canvasLocation" x="1099" y="339"/>
         </scene>
@@ -387,7 +392,27 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hAm-oC-SRU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1747" y="1088"/>
+            <point key="canvasLocation" x="763" y="1288"/>
+        </scene>
+        <!--User Profile View Controller-->
+        <scene sceneID="arF-9J-osB">
+            <objects>
+                <viewController storyboardIdentifier="UserProfileViewController" id="Lom-n0-Xpj" customClass="UserProfileViewController" customModule="tweety" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="oi6-2H-AjL"/>
+                        <viewControllerLayoutGuide type="bottom" id="Jkn-gI-8JJ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="lRl-b5-3Jv">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Hce-hB-MEg"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="N7X-uo-jfd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1643" y="1032"/>
         </scene>
         <!--Tweet Detail View Controller-->
         <scene sceneID="S8y-Vo-WgT">
@@ -643,7 +668,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F39-ZK-sNC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1315" y="1080"/>
+            <point key="canvasLocation" x="331" y="1280"/>
         </scene>
         <!--Compose Tweet View Controller-->
         <scene sceneID="sAW-my-lCZ">
@@ -734,6 +759,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Haa-6B-dlu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1261" y="-630"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ue4-D0-zmW">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3W4-Ex-KBg" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="vyy-LI-gFe">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Lom-n0-Xpj" kind="relationship" relationship="rootViewController" id="TNo-g1-w2q"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wQh-NI-Ys8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1099" y="1024"/>
         </scene>
     </scenes>
     <resources>

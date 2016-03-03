@@ -9,6 +9,8 @@
 import UIKit
 
 class UserProfileViewController: UIViewController {
+    
+    weak var user: User!
 
     override func viewDidLoad() {
         super.viewDidLoad()

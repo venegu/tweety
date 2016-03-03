@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TweetsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class TweetsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, TimelineCellDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var networkAlert: UIView!
@@ -77,7 +77,7 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("TimelineCell") as! TimelineCell
-        
+        cell.delegate = self
         cell.tweet = tweets[indexPath.row]
         tweetIdLast = tweets[indexPath.row].tweetId
         
@@ -198,6 +198,7 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         networkCall()
         refreshControl.endRefreshing()
     }
+    
    
     // MARK: - Navigation
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -222,6 +223,16 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
                 let tweet = tweets[(indexPath.row)]
                 replyTweetViewController.replyTo = tweet
             }
+        }
+    }
+    
+    func profileImageClicked(tweet: Tweet?) {
+        let apiParameters = ["user_id": tweet!.retweetedUserId!]
+        TwitterClient.sharedInstance.fetchingUserWithCompletion(apiParameters) { (user, error) -> () in
+            
+            let profileViewController = self.storyboard?.instantiateViewControllerWithIdentifier("UserProfileViewController") as! UserProfileViewController
+            self.navigationController?.pushViewController(profileViewController, animated: true)
+            profileViewController.user = user!
         }
     }
 }

@@ -8,7 +8,13 @@
 
 import UIKit
 
+@objc protocol TimelineCellDelegate: class {
+    optional func profileImageClicked(tweet: Tweet?)
+}
+
 class TimelineCell: UITableViewCell {
+    
+    weak var delegate: TimelineCellDelegate?
     
     /*------------------*
      *      Outlets     *
@@ -155,12 +161,22 @@ class TimelineCell: UITableViewCell {
         userImageView.layer.cornerRadius = 4
         userImageView.clipsToBounds = true
         
+        let tap = UITapGestureRecognizer(target: self, action: Selector("openProfile:"))
+        tap.numberOfTapsRequired = 1
+        userImageView.userInteractionEnabled = true
+        userImageView.addGestureRecognizer(tap)
+        
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    func openProfile(sender: UITapGestureRecognizer) {
+        print("Ran")
+        delegate?.profileImageClicked!(self.tweet)
     }
     
     /*-------------------------*

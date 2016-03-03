@@ -21,6 +21,7 @@ class Tweet: NSObject {
     var favoritedByCurrentUser: Bool? = false
     var wasRetweeted = false
     var wasRetweetedBy: String?
+    var retweetedUserId: Int?
     var imageUrl: NSURL?
     
     init(dictionary: NSDictionary) {
@@ -34,6 +35,7 @@ class Tweet: NSObject {
             wasRetweeted = true
             wasRetweetedBy = dictionary["user"]!["name"] as? String
             timestampString = retweetedTweet["created_at"] as? String
+            retweetedUserId = user?.id
         
         } else {
             user = User(dictionary: dictionary["user"] as! NSDictionary)

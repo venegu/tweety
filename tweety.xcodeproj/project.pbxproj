@@ -24,6 +24,7 @@
 		288ED9F01C80F72100D9BEEF /* TweetDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288ED9EF1C80F72100D9BEEF /* TweetDetailViewController.swift */; };
 		28CBFF151C8230E800497A80 /* ComposeTweetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CBFF141C8230E800497A80 /* ComposeTweetViewController.swift */; };
 		28CBFF171C82674400497A80 /* ReplyTweetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CBFF161C82674400497A80 /* ReplyTweetViewController.swift */; };
+		28F5B1BA1C85E7AC0029AE16 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F5B1B91C85E7AC0029AE16 /* UserProfileViewController.swift */; };
 		7232772AE665C4B6B28FCD43 /* Pods_tweety.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42220A6070AA0CC268BEF65A /* Pods_tweety.framework */; };
 		7F91220729735657DFA9A327 /* Pods_tweetyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D06635DD4FA02BF8B124491 /* Pods_tweetyTests.framework */; };
 /* End PBXBuildFile section */
@@ -69,6 +70,7 @@
 		288ED9EF1C80F72100D9BEEF /* TweetDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetDetailViewController.swift; sourceTree = "<group>"; };
 		28CBFF141C8230E800497A80 /* ComposeTweetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeTweetViewController.swift; sourceTree = "<group>"; };
 		28CBFF161C82674400497A80 /* ReplyTweetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReplyTweetViewController.swift; sourceTree = "<group>"; };
+		28F5B1B91C85E7AC0029AE16 /* UserProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		42220A6070AA0CC268BEF65A /* Pods_tweety.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_tweety.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5289A6FC2AC0818FABD3AF0E /* Pods-tweety.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tweety.debug.xcconfig"; path = "Pods/Target Support Files/Pods-tweety/Pods-tweety.debug.xcconfig"; sourceTree = "<group>"; };
 		6F2227809E4716D0C16A7BEA /* Pods-tweety.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tweety.release.xcconfig"; path = "Pods/Target Support Files/Pods-tweety/Pods-tweety.release.xcconfig"; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 				2838423D1C81FF1900D5C061 /* LargeImageViewController.swift */,
 				28CBFF141C8230E800497A80 /* ComposeTweetViewController.swift */,
 				28CBFF161C82674400497A80 /* ReplyTweetViewController.swift */,
+				28F5B1B91C85E7AC0029AE16 /* UserProfileViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -460,6 +463,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				28CBFF151C8230E800497A80 /* ComposeTweetViewController.swift in Sources */,
+				28F5B1BA1C85E7AC0029AE16 /* UserProfileViewController.swift in Sources */,
 				286A40641C7A99A200802BA5 /* TwitterClient.swift in Sources */,
 				2818E0121C7AB1F500592310 /* TimelineCell.swift in Sources */,
 				2818E00E1C7AA17700592310 /* Tweet.swift in Sources */,
