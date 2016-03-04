@@ -36,18 +36,6 @@ class User: NSObject {
             profileUrlHigh = NSURL(string: profileUrlString.stringByReplacingOccurrencesOfString("_normal", withString: ""))
         }
         
-        let profileBannerImageString = dictionary["profile_banner_url"] as? String
-        
-        if let profileBannerImageString = profileBannerImageString {
-            profileBannerImage = NSURL(string: profileBannerImageString)
-        }
-        
-        let profileBackgroundImageString = dictionary["profile_background_image_url"] as? String
-        
-        if let profileBackgroundImageString = profileBackgroundImageString {
-            profileBackgroundImage = NSURL(string: profileBackgroundImageString)
-        }
-        
         tagline = dictionary["description"] as? String
         id = dictionary["id"] as? Int
         
