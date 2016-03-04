@@ -229,7 +229,7 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     func profileImageClicked(tweet: Tweet?) {
         let apiParameters = ["user_id": tweet!.userId!]
         TwitterClient.sharedInstance.fetchingUserWithCompletion(apiParameters) { (user, error) -> () in
-            
+            print("User:\(user)")
             let profileViewController = self.storyboard?.instantiateViewControllerWithIdentifier("UserProfileViewController") as! UserProfileViewController
             self.navigationController?.pushViewController(profileViewController, animated: true)
             profileViewController.user = user!
