@@ -21,6 +21,7 @@ class UserProfileViewController: UIViewController {
     @IBOutlet weak var followersCountLabel: UILabel!
     @IBOutlet weak var headerBannerImageView: UIImageView!
     @IBOutlet weak var blurBannerImageView: UIImageView!
+    @IBOutlet weak var headerBackground: UIView!
     
     @IBOutlet weak var lineHeightConstraint: NSLayoutConstraint!
     
@@ -41,12 +42,14 @@ class UserProfileViewController: UIViewController {
             
             profileImageView.setImageWithURL(user!.profileUrlHigh!)
             
-            headerBannerImageView.setImageWithURLRequest(NSURLRequest(URL: user!.profileBackgroundImage!), placeholderImage: nil, success: { (request, response, image) -> Void in
-                self.headerBannerImageView.image = image
-                
-                print(self.user!.profileBackgroundImage!)
-                }) { (request, response, error) -> Void in
+            if user!.profileBackgroundImage != nil {
+                headerBannerImageView.setImageWithURLRequest(NSURLRequest(URL: user!.profileBackgroundImage!), placeholderImage: nil, success: { (request, response, image) -> Void in
+                    self.headerBannerImageView.image = image
+                    
+
+                    }) { (request, response, error) -> Void in
                     print(error.localizedDescription)
+                }
             }
         }
     }
