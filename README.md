@@ -60,18 +60,19 @@ Describe any challenges encountered while building the app.
 
 ## Resources
 
-## Credits
-
-Twitter Icons - Courtesy of the [Twitter Brand Assets](https://about.twitter.com/company/brand-assets) and a student at CCSF
-Compose Icon - [Gregor Črešnar](https://thenounproject.com/search/?q=compose&i=256159)
-Cancel Icon - [Shawn Wong](https://thenounproject.com/search/?q=x&i=114046)
-Network Alert Icon - [Ugur Akdemir](https://thenounproject.com/search/?q=wifi&i=26774)
-Magnifying Glass Icon - [Eugen Belyakoff](https://thenounproject.com/search/?q=magnifying+glass&i=38681)
-
-Many thanks!
-
 ### Hiding API Keys
    - http://stackoverflow.com/questions/30705214/call-app-delegate-method-from-view-controller
+
+## Credits
+
+   - Twitter Icons - Courtesy of the [Twitter Brand Assets](https://about.twitter.com/company/brand-assets) and a student at CCSF
+
+   - Compose Icon - [Gregor Črešnar](https://thenounproject.com/search/?q=compose&i=256159)
+   - Cancel Icon - [Shawn Wong](https://thenounproject.com/search/?q=x&i=114046)
+   - Network Alert Icon - [Ugur Akdemir](https://thenounproject.com/search/?q=wifi&i=26774)
+   - Magnifying Glass Icon - [Eugen Belyakoff](https://thenounproject.com/search/?q=magnifying+glass&i=38681)
+
+Many thanks!
 
 ## License
 
@@ -99,9 +100,9 @@ Time spent: **X** hours spent in total
 The following **required** functionality is completed:
 
 - [x] Tweet Details Page: User can tap on a tweet to view it, with controls to retweet, favorite, and reply.
-- [ ] Profile page:
-   - [ ] Contains the user header view
-   - [ ] Contains a section with the users basic stats: # tweets, # following, # followers
+- [x] Profile page:
+   - [x] Contains the user header view
+   - [x] Contains a section with the users basic stats: # tweets, # following, # followers
 - [x] Home Timeline: Tapping on a user image should bring up that user's profile page
 - [x] Compose Page: User can compose a new tweet by tapping on a compose button.
 
