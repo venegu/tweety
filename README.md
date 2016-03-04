@@ -66,7 +66,6 @@ Describe any challenges encountered while building the app.
 ## Credits
 
    - Twitter Icons - Courtesy of the [Twitter Brand Assets](https://about.twitter.com/company/brand-assets) and a student at CCSF
-
    - Compose Icon - [Gregor Črešnar](https://thenounproject.com/search/?q=compose&i=256159)
    - Cancel Icon - [Shawn Wong](https://thenounproject.com/search/?q=x&i=114046)
    - Network Alert Icon - [Ugur Akdemir](https://thenounproject.com/search/?q=wifi&i=26774)
@@ -109,7 +108,7 @@ The following **required** functionality is completed:
 The following **optional** features are implemented:
 
 - [x] When composing, you should have a countdown in the upper right for the tweet limit.
-- [ ] After creating a new tweet, a user should be able to view it in the timeline immediately without refetching the timeline from the network.
+- [x] After creating a new tweet, a user should be able to view it in the timeline immediately without refetching the timeline from the network.
 - [ ] Profile Page
    - [ ] Implement the paging view for the user description.
    - [ ] As the paging view moves, increase the opacity of the background screen. See the actual Twitter app for this effect

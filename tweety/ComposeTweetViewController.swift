@@ -8,8 +8,13 @@
 
 import UIKit
 
-class ComposeTweetViewController: UIViewController {
+@objc protocol ComposeTweetViewControllerDelegate {
+    optional func composeTweetViewController(composeTweetViewController: ComposeTweetViewController, didUpdateTweet newTweet: Tweet)
+}
 
+class ComposeTweetViewController: UIViewController {
+    
+    weak var delegate: ComposeTweetViewControllerDelegate?
     
     @IBOutlet weak var countLabel: UILabel!
     @IBOutlet weak var tweetTextField: UITextField!
@@ -36,8 +41,12 @@ class ComposeTweetViewController: UIViewController {
     @IBAction func onTweetButton(sender: AnyObject) {
         let apiParameters = NSMutableDictionary()
         apiParameters["status"] = tweetTextField.text!
-        TwitterClient.sharedInstance.replyToTweet(apiParameters)
-        dismissViewControllerAnimated(true, completion: nil)
+        TwitterClient.sharedInstance.replyToTweetWithCompletion(apiParameters) { (tweet, error) -> () in
+            if tweet != nil {
+                self.delegate?.composeTweetViewController!(self, didUpdateTweet: tweet!)
+                self.dismissViewControllerAnimated(true, completion: nil)
+            }
+        }
     }
     
     // MARK: - Text Field Functions

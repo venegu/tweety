@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TweetsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, TimelineCellDelegate {
+class TweetsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, TimelineCellDelegate, ComposeTweetViewControllerDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var networkAlert: UIView!
@@ -199,6 +199,16 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         refreshControl.endRefreshing()
     }
     
+    func composeTweetViewController(composeTweetViewController: ComposeTweetViewController, didUpdateTweet newTweet: Tweet){
+        addNewTweet(newTweet)
+    }
+    
+    func addNewTweet(newTweet: Tweet) {
+        tweets.insert(newTweet, atIndex: 0)
+        tableView.reloadData()
+        self.tableView.contentOffset = CGPointMake(0, 0 - self.tableView.contentInset.top)
+    }
+    
    
     // MARK: - Navigation
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -214,7 +224,7 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
             tweetDetailViewController.tweet = tweet
         }
         
-        if (segue.identifier == "toReplyToTweet") {
+        if segue.identifier == "toReplyToTweet" {
             let button = sender as! UIButton
             let buttonFrame = button.convertRect(button.bounds, toView: self.tableView)
             if let indexPath = self.tableView.indexPathForRowAtPoint(buttonFrame.origin) {
@@ -222,6 +232,14 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
                 let replyTweetViewController = nav.topViewController as! ReplyTweetViewController
                 let tweet = tweets[(indexPath.row)]
                 replyTweetViewController.replyTo = tweet
+            }
+        }
+        
+        if segue.identifier == "toComposeTweet" {
+            let navigationController = segue.destinationViewController as! UINavigationController
+            if navigationController.topViewController is ComposeTweetViewController {
+                let composeTweetViewController = navigationController.topViewController as! ComposeTweetViewController
+                composeTweetViewController.delegate = self
             }
         }
     }
