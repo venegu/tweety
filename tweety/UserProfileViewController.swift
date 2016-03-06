@@ -22,11 +22,21 @@ class UserProfileViewController: UIViewController {
     @IBOutlet weak var headerBannerImageView: UIImageView!
     @IBOutlet weak var blurBannerImageView: UIImageView!
     @IBOutlet weak var headerBackground: UIView!
+    @IBOutlet weak var tweetsSegmentControl: UISegmentedControl!
+    @IBOutlet weak var hiddenNameLabel: UILabel!
+    @IBOutlet weak var numberOfLabel: UILabel!
+    
     
     @IBOutlet weak var lineHeightConstraint: NSLayoutConstraint!
-    
-    
     @IBOutlet weak var profileImageTopMargin: NSLayoutConstraint!
+    
+    var offsetHeaderViewStop: CGFloat!
+    var offsetHeader: CGFloat?
+    var offsetHeaderBackgroundViewStop: CGFloat!
+    var offsetNavigationLabelViewStop: CGFloat!
+    var navigationBarHeight: CGFloat!
+    
+    var pan: UIPanGestureRecognizer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,6 +62,27 @@ class UserProfileViewController: UIViewController {
                 }
             }
         }
+        
+        // Hiding labels for the navigation bar
+        hiddenNameLabel.hidden = true
+        numberOfLabel.hidden = true
+        
+        // Making sure header image does not overflow
+        navigationBarHeight = navigationController!.navigationBar.frame.size.height + navigationController!.navigationBar.frame.origin.y
+        offsetHeaderViewStop = tweetsSegmentControl.frame.origin.y - navigationBarHeight - 8
+        offsetHeaderBackgroundViewStop = (headerBackground.frame.size.height + headerBackground.frame.origin.y) - navigationBarHeight
+        offsetNavigationLabelViewStop = hiddenNameLabel.frame.origin.y - (navigationBarHeight / 2) + 8
+        headerBackground.clipsToBounds = true
+        lineHeightConstraint.constant = 1 / UIScreen.mainScreen().scale
+        
+        // Profile image white border border
+        profileImageView.layer.cornerRadius = 10
+        profileImageView.clipsToBounds = true
+        profileImageView.layer.borderColor = UIColor.whiteColor().CGColor
+        profileImageView.layer.borderWidth = 4.0
+        profileImageTopMargin.constant = navigationBarHeight + 4.0
+        profileImageView.layer.zPosition = 1
+        
     }
 
     override func didReceiveMemoryWarning() {
