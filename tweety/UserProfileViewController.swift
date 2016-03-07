@@ -27,7 +27,7 @@ class UserProfileViewController: UIViewController, UITableViewDataSource, UITabl
     @IBOutlet weak var tweetsSegmentControl: UISegmentedControl!
     @IBOutlet weak var hiddenNameLabel: UILabel!
     @IBOutlet weak var numberOfLabel: UILabel!
-    
+    @IBOutlet weak var headerView: UIView!
     
     @IBOutlet weak var lineHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var profileImageTopMargin: NSLayoutConstraint!
@@ -41,13 +41,13 @@ class UserProfileViewController: UIViewController, UITableViewDataSource, UITabl
     var navigationBarHeight: CGFloat!
     
     var ifTweet: Bool = true
-    var pan: UIPanGestureRecognizer!
     var offset: Int? = 20
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        //tableView.tableHeaderView = headerView
         tableView.dataSource = self
         tableView.delegate = self
         
@@ -117,7 +117,7 @@ class UserProfileViewController: UIViewController, UITableViewDataSource, UITabl
         UINavigationBar.appearance().layer.shadowRadius = 0.0
         UINavigationBar.appearance().layer.shadowColor = UIColor.clearColor().CGColor
         UINavigationBar.appearance().layer.shadowOpacity = 0.0
-        
+       // tableView.tableHeaderView = headerView
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -173,7 +173,6 @@ class UserProfileViewController: UIViewController, UITableViewDataSource, UITabl
 
     }
     
-
     /*
     // MARK: - Navigation
 

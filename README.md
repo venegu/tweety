@@ -92,7 +92,7 @@ Many thanks!
 
 # Project 5 - *Tweety*
 
-Time spent: **X** hours spent in total
+Time spent: **11** hours spent in total
 
 ## User Stories
 
