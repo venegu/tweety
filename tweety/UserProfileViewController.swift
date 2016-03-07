@@ -8,9 +8,11 @@
 
 import UIKit
 
-class UserProfileViewController: UIViewController {
+class UserProfileViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    var user: User?
+    var user: User!
+    var tweets = [Tweet]()
+    
     
     // MARK: - Outlets
     @IBOutlet weak var profileImageView: UIImageView!
@@ -30,18 +32,29 @@ class UserProfileViewController: UIViewController {
     @IBOutlet weak var lineHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var profileImageTopMargin: NSLayoutConstraint!
     
+    @IBOutlet weak var tableView: UITableView!
+    
     var offsetHeaderViewStop: CGFloat!
     var offsetHeader: CGFloat?
     var offsetHeaderBackgroundViewStop: CGFloat!
     var offsetNavigationLabelViewStop: CGFloat!
     var navigationBarHeight: CGFloat!
     
+    var ifTweet: Bool = true
     var pan: UIPanGestureRecognizer!
+    var offset: Int? = 20
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        tableView.dataSource = self
+        tableView.delegate = self
+        
+        networkCall()
+        
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 120
         
         if user != nil {
             nameLabel.text = user!.name as? String
@@ -75,7 +88,7 @@ class UserProfileViewController: UIViewController {
         headerBackground.clipsToBounds = true
         lineHeightConstraint.constant = 1 / UIScreen.mainScreen().scale
         
-        // Profile image white border border
+        // Profile image white border border & positioning
         profileImageView.layer.cornerRadius = 10
         profileImageView.clipsToBounds = true
         profileImageView.layer.borderColor = UIColor.whiteColor().CGColor
@@ -88,6 +101,45 @@ class UserProfileViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    // MARK: - Table View Functions
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return tweets.count
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("TimelineCell") as! TimelineCell
+        
+        cell.tweet = tweets[indexPath.row]
+        
+        return cell
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    }
+    
+    // MARK: - Network Calls
+    
+    func networkCall() {
+        var apiParameters : [String: Int] {
+            get {
+                return ["user_id": user.id!, "count": offset!]
+            }
+        }
+        
+        TwitterClient.sharedInstance.fetchingUserTimeline(apiParameters, success: { (tweets: [Tweet]) -> () in
+            self.tweets = tweets
+            self.tableView.reloadData()
+
+            
+            }, failure: { (error: NSError) -> () in
+                print(error.localizedDescription)
+
+        })
+
     }
     
 

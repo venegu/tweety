@@ -198,8 +198,10 @@ class TwitterClient: BDBOAuth1SessionManager {
         }
     }
     
-    func replyToTweetWithCompletion(params: NSDictionary, completion: (tweet: Tweet?, error: NSError?) -> ()) {
-        POST("1.1/statuses/update.json", parameters: params, progress: { (progress: NSProgress) -> Void in },
+    func replyToTweetWithCompletion(apiParameters: NSDictionary, completion: (tweet: Tweet?, error: NSError?) -> ()) {
+        POST("1.1/statuses/update.json", parameters: apiParameters, progress: { (progress: NSProgress) -> Void in
+            },
+            
             success: { (operation: NSURLSessionDataTask, response: AnyObject?) -> Void in
                 let tweet = Tweet(dictionary: response as! NSDictionary)
                 completion(tweet: tweet, error: nil)
@@ -207,7 +209,7 @@ class TwitterClient: BDBOAuth1SessionManager {
             failure: { (operation: NSURLSessionDataTask?, error: NSError!) -> Void in
                 print("error creating tweet")
                 completion(tweet: nil, error: error)
-            })
+        })
     }
     
     func fetchingUserWithCompletion(apiParameters: NSDictionary?, completion: (user: User?, error: NSError?)-> ()) {
@@ -218,6 +220,21 @@ class TwitterClient: BDBOAuth1SessionManager {
             }, failure: { (operation: NSURLSessionDataTask?, error) -> Void in
                 completion(user: nil, error: error)
         })
+    }
+    
+    func fetchingUserTimeline(apiParameters: NSDictionary?, success: ([Tweet]) -> (), failure: (NSError) -> ()) {
+        // Making a GET request to the user_timeline endpoint
+        GET("1.1/statuses/user_timeline.json", parameters: apiParameters, progress: nil, success: { (task: NSURLSessionDataTask, response: AnyObject?) -> Void in
+                
+            let dictionaries = response as! [NSDictionary]
+            let tweets = Tweet.tweetsWithArray(dictionaries)
+                
+            success(tweets)
+                
+        }, failure: { (task: NSURLSessionDataTask? , error: NSError) -> Void in
+            failure(error)
+        })
+
     }
 
 }
