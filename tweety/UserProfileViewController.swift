@@ -65,13 +65,23 @@ class UserProfileViewController: UIViewController, UITableViewDataSource, UITabl
             
             profileImageView.setImageWithURL(user!.profileUrlHigh!)
             
-            if user!.profileBackgroundImage != nil {
-                headerBannerImageView.setImageWithURLRequest(NSURLRequest(URL: user!.profileBackgroundImage!), placeholderImage: nil, success: { (request, response, image) -> Void in
+            if user!.profileBannerImage != nil {
+                headerBannerImageView.setImageWithURLRequest(NSURLRequest(URL: user!.profileBannerImage!), placeholderImage: nil, success: { (request, response, image) -> Void in
                     self.headerBannerImageView.image = image
                     
 
                     }) { (request, response, error) -> Void in
                     print(error.localizedDescription)
+                }
+            } else {
+                if user!.profileBackgroundImage != nil {
+                    headerBannerImageView.setImageWithURLRequest(NSURLRequest(URL: user!.profileBackgroundImage!), placeholderImage: nil, success: { (request, response, image) -> Void in
+                        self.headerBannerImageView.image = image
+                        
+                        
+                        }) { (request, response, error) -> Void in
+                            print(error.localizedDescription)
+                    }
                 }
             }
         }
@@ -96,6 +106,27 @@ class UserProfileViewController: UIViewController, UITableViewDataSource, UITabl
         profileImageTopMargin.constant = navigationBarHeight + 4.0
         profileImageView.layer.zPosition = 1
         
+        // Making navbar see-through
+        navigationController!.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
+        navigationController!.navigationBar.shadowImage = UIImage()
+        navigationController!.navigationBar.translucent = true;
+        navigationController!.view.backgroundColor = UIColor.clearColor()
+        navigationController!.navigationBar.backgroundColor = UIColor.clearColor()
+        
+        UINavigationBar.appearance().layer.shadowOffset = CGSizeMake(0, 0)
+        UINavigationBar.appearance().layer.shadowRadius = 0.0
+        UINavigationBar.appearance().layer.shadowColor = UIColor.clearColor().CGColor
+        UINavigationBar.appearance().layer.shadowOpacity = 0.0
+        
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        navigationController!.navigationBar.setBackgroundImage(nil, forBarMetrics: UIBarMetrics.Default)
+        // Back to previous version
+        UINavigationBar.appearance().layer.shadowOffset = CGSizeMake(0, 2)
+        UINavigationBar.appearance().layer.shadowRadius = 1.0
+        UINavigationBar.appearance().layer.shadowColor = UIColor.lightGrayColor().CGColor
+        UINavigationBar.appearance().layer.shadowOpacity = 0.7
     }
 
     override func didReceiveMemoryWarning() {
