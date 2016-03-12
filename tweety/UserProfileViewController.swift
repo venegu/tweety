@@ -17,14 +17,9 @@ class UserProfileViewController: UIViewController, UITableViewDataSource, UITabl
     // MARK: - Outlets
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var handleLabel: UILabel!
-    @IBOutlet weak var taglineLabel: UILabel!
-    @IBOutlet weak var followingCountLabel: UILabel!
-    @IBOutlet weak var followersCountLabel: UILabel!
     @IBOutlet weak var headerBannerImageView: UIImageView!
     @IBOutlet weak var blurBannerImageView: UIImageView!
     @IBOutlet weak var headerBackground: UIView!
-    @IBOutlet weak var tweetsSegmentControl: UISegmentedControl!
     @IBOutlet weak var hiddenNameLabel: UILabel!
     @IBOutlet weak var numberOfLabel: UILabel!
     @IBOutlet weak var headerView: UIView!
@@ -45,7 +40,7 @@ class UserProfileViewController: UIViewController, UITableViewDataSource, UITabl
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        print(user!.name)
         // Do any additional setup after loading the view.
         //tableView.tableHeaderView = headerView
         tableView.dataSource = self
@@ -54,14 +49,9 @@ class UserProfileViewController: UIViewController, UITableViewDataSource, UITabl
         networkCall()
         
         tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = 120
+        tableView.estimatedRowHeight = 140
         
         if user != nil {
-            nameLabel.text = user!.name as? String
-            handleLabel.text = "@\(user!.screenname as! String)"
-            taglineLabel.text = user!.tagline as? String
-            followingCountLabel.text = "\(user!.followingCount!)"
-            followersCountLabel.text = "\(user!.followersCount!)"
             
             profileImageView.setImageWithURL(user!.profileUrlHigh!)
             
@@ -92,11 +82,11 @@ class UserProfileViewController: UIViewController, UITableViewDataSource, UITabl
         
         // Making sure header image does not overflow
         navigationBarHeight = navigationController!.navigationBar.frame.size.height + navigationController!.navigationBar.frame.origin.y
-        offsetHeaderViewStop = tweetsSegmentControl.frame.origin.y - navigationBarHeight - 8
+        //offsetHeaderViewStop = tweetsSegmentControl.frame.origin.y - navigationBarHeight - 8
         offsetHeaderBackgroundViewStop = (headerBackground.frame.size.height + headerBackground.frame.origin.y) - navigationBarHeight
         offsetNavigationLabelViewStop = hiddenNameLabel.frame.origin.y - (navigationBarHeight / 2) + 8
         headerBackground.clipsToBounds = true
-        lineHeightConstraint.constant = 1 / UIScreen.mainScreen().scale
+        //lineHeightConstraint.constant = 1 / UIScreen.mainScreen().scale
         
         // Profile image white border border & positioning
         profileImageView.layer.cornerRadius = 10
@@ -141,11 +131,22 @@ class UserProfileViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("TimelineCell") as! TimelineCell
+        if indexPath.row == 0 {
+            let cell = tableView.dequeueReusableCellWithIdentifier("ProfileCell") as! ProfileCell
+            cell.nameLabel.text = user!.name as? String
+            cell.handleLabel.text = "@\(user!.screenname as! String)"
+            cell.taglineLabel.text = user!.tagline as? String
+            cell.followingCountLabel.text = "\(user!.followingCount!) Following"
+            cell.followersCountLabel.text = "\(user!.followersCount!) Followers"
+            
+            return cell
+            
+        } else {
+            let cell = tableView.dequeueReusableCellWithIdentifier("TimelineCell") as! TimelineCell
+            cell.tweet = tweets[indexPath.row]
         
-        cell.tweet = tweets[indexPath.row]
-        
-        return cell
+            return cell
+        }
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {

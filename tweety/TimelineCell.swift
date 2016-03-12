@@ -175,7 +175,6 @@ class TimelineCell: UITableViewCell {
     }
     
     func openProfile(sender: UITapGestureRecognizer) {
-        print("Ran")
         delegate?.profileImageClicked!(self.tweet)
     }
     
