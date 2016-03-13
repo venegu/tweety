@@ -124,7 +124,12 @@ The following **additional** features are implemented:
 - [x] Displaying user tweets in the profile page.
 - [x] Allows for showing images and properly changes the constraints if the post has no image.
 - [x] Properly changes constraints for retweeted tweets.
-- [x] "Prettifies" the time in the timeline cell.
+- [x] "Prettifies" the time in the Tweet model.
+- [x] Resizes profile image view under profile banner as the user scrolls using Core Animation translation and scale functions and hides it under the banner using Z position.
+- [x] Resizes profile banner as the user scrolls using Core Animation translation and scale functions.
+- [x] Showing number of tweets in the "navigation bar" by using the Core Animation.
+- [x] Fetches higher res profile image in the User model (had intentions of fading in images).
+
 
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 
