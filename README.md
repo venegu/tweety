@@ -92,7 +92,7 @@ Many thanks!
 
 # Project 5 - *Tweety*
 
-Time spent: **11** hours spent in total
+Time spent: **13** hours spent in total
 
 ## User Stories
 
@@ -112,7 +112,7 @@ The following **optional** features are implemented:
 - [ ] Profile Page
    - [ ] Implement the paging view for the user description.
    - [ ] As the paging view moves, increase the opacity of the background screen. See the actual Twitter app for this effect
-   - [ ] Pulling down the profile page should blur and resize the header image.
+   - [x] Pulling down the profile page should resize the header image. NOTE: I didn't get the blur done :(
 - [ ] Account switching
    - [ ] Long press on tab bar to bring up Account view with animation
    - [ ] Tap account to switch to
@@ -132,7 +132,7 @@ Please list two areas of the assignment you'd like to **discuss further with you
 
 Here's a walkthrough of implemented user stories:
 
-<img src='https://github.com/venegu/tweety/raw/master/tweety3.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://github.com/venegu/tweety/raw/master/tweety3.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />       <img src='https://github.com/venegu/tweety/raw/master/tweety4.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
