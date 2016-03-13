@@ -122,6 +122,9 @@ The following **optional** features are implemented:
 The following **additional** features are implemented:
 
 - [x] Displaying user tweets in the profile page.
+- [x] Allows for showing images and properly changes the constraints if the post has no image.
+- [x] Properly changes constraints for retweeted tweets.
+- [x] "Prettifies" the time in the timeline cell.
 
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 
