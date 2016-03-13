@@ -23,6 +23,7 @@ class User: NSObject {
     var likesCount: Int?
     var followingCount: Int?
     var followersCount: Int?
+    var statusesCount: Int?
     
     // Constructor to deserialize properties retrieved from the API
     init(dictionary: NSDictionary) {
@@ -55,6 +56,7 @@ class User: NSObject {
         likesCount = dictionary["favourites_count"] as? Int
         followingCount = dictionary["friends_count"] as? Int
         followersCount = dictionary["followers_count"] as? Int
+        statusesCount = dictionary["statuses_count"] as? Int
         
     }
     

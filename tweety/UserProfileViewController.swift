@@ -16,16 +16,12 @@ class UserProfileViewController: UIViewController, UITableViewDataSource, UITabl
     
     // MARK: - Outlets
     @IBOutlet weak var profileImageView: UIImageView!
-    @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var headerBannerImageView: UIImageView!
     @IBOutlet weak var blurBannerImageView: UIImageView!
     @IBOutlet weak var headerBackground: UIView!
     @IBOutlet weak var hiddenNameLabel: UILabel!
     @IBOutlet weak var numberOfLabel: UILabel!
-    @IBOutlet weak var headerView: UIView!
 
-    
-    @IBOutlet weak var lineHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var profileImageTopMargin: NSLayoutConstraint!
     
     @IBOutlet weak var tableView: UITableView!
@@ -57,6 +53,8 @@ class UserProfileViewController: UIViewController, UITableViewDataSource, UITabl
             profileImageView.setImageWithURL(user!.profileUrlHigh!)
             
             if user!.profileBannerImage != nil {
+                hiddenNameLabel.text = user!.name as? String
+                numberOfLabel.text = "\(user!.statusesCount!) of Tweets"
                 headerBannerImageView.setImageWithURLRequest(NSURLRequest(URL: user!.profileBannerImage!), placeholderImage: nil, success: { (request, response, image) -> Void in
                     self.headerBannerImageView.image = image
 
@@ -106,7 +104,6 @@ class UserProfileViewController: UIViewController, UITableViewDataSource, UITabl
         UINavigationBar.appearance().layer.shadowRadius = 0.0
         UINavigationBar.appearance().layer.shadowColor = UIColor.clearColor().CGColor
         UINavigationBar.appearance().layer.shadowOpacity = 0.0
-       // tableView.tableHeaderView = headerView
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -173,7 +170,7 @@ class UserProfileViewController: UIViewController, UITableViewDataSource, UITabl
 
     }
     
-    // I received a lot of help with this
+    // I received a lot of help with this & read & understood someone else code to achieve this
     func scrollViewDidScroll(scrollView: UIScrollView) {
         // Setting starting offset (in the event the view was already scrolled)
         if initialOffset == nil {
@@ -239,7 +236,8 @@ class UserProfileViewController: UIViewController, UITableViewDataSource, UITabl
             if profileImageView.layer.zPosition >= headerBackground.layer.zPosition{
                 headerBackground.layer.zPosition = profileImageView.layer.zPosition + 1
                 hiddenNameLabel.layer.zPosition = headerBackground.layer.zPosition + 1
-                numberOfLabel.layer.zPosition = headerBackground.layer.zPosition + 1
+                numberOfLabel.layer.zPosition =
+                    headerBackground.layer.zPosition + 1
             }
         }
     }
